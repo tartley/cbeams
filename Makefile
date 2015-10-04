@@ -8,7 +8,7 @@
 ve:
 	# Make can't execute 'mkvirtualenv', 'cos we don't use interactive shell.
 	# So execute it yourself:
-	# mkvirtualenv -p $(which python3.4) -a . -r requirements-dev.txt cbeams
+	# mkvirtualenv -p $(which python3.5) -a . -r requirements-dev.txt cbeams
 
 download-deps:
 	pip install -r requirements.txt --download=deps
