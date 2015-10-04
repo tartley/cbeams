@@ -85,7 +85,8 @@ def get_sdist_config():
         },
         # Application dependencies, pinned:
         install_requires=[
-            'docopt==0.6.1'
+            'docopt==0.6.1',
+            'blessings==1.6',
         ],
         packages=find_packages(exclude=('*.tests',)),
         #include_package_data=True,
