@@ -1,14 +1,13 @@
 import sys
 
-from . import cmdline
-
+from . import cmdline, terminal
 
 def main():
     '''
     Application console script entry point.
     '''
     cmdline.parse(sys.argv[1:])
-    print('Hello, World.')
+    terminal.animate()
 
 
 if __name__ == '__main__':
