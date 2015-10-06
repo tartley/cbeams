@@ -38,15 +38,15 @@ class Shape():
             for y in range(y1, y2 + 1)
         ])
 
-    def CircleFill(y, x, radius):
+    def CircleFill(y, x, radius, aspect=1.6):
         '''
         A filled circle from an x,y center and radius.
-        Radius may be given as a float, which will make a visible difference.
+        Radius may be a float, & fractional parts do make a visible difference.
         '''
         result = []
-        for yoffset in range(-radius + 1, radius):
+        for yoffset in range(-round(radius) + 1, round(radius)):
             height = radius - yoffset
-            xoffset = math.sqrt((radius - height / 2) * 2 * height)
+            xoffset = math.sqrt((radius - height / 2) * 2 * height) * aspect
             result.append((
                 y + yoffset,
                 x - round(xoffset - 0.5),

@@ -26,8 +26,7 @@ def test_str():
 
 def test_rectfill():
     '''
-         x
-         012345
+         012345 x
       y 0 ####
         1 ####
         2 ####
@@ -46,8 +45,7 @@ def test_rectfill_should_handle_minimal_case():
 @patch.object(Shape, 'terminal', get_mock_terminal(height=5, width=6))
 def test_rectfill_with_negative_coords_should_interpret_from_right_bottom():
     '''
-         x
-         012345
+         012345 x
       y 0
         1   ###
         2   ###
@@ -68,7 +66,7 @@ def test_rectfill_with_unordered_args_should_raise():
 
 
 def test_circlefill():
-    assert str(Shape.CircleFill(2, 2, 2)) == (
+    assert str(Shape.CircleFill(2, 2, 2, aspect=1)) == (
         'move(1,1)' + ' ' * 3 +
         'move(2,0)' + ' ' * 5 +
         'move(3,1)' + ' ' * 3
