@@ -22,24 +22,10 @@ def reset_on_exit(func):
 @reset_on_exit
 def animate():
     for color, shape in [
-        (terminal.on_blue, Shape.rectfill(1, 1, 2, 2)),
-        (
-            terminal.on_magenta,
-            Shape.rectfill(terminal.height - 3, 1, terminal.height - 1, 2)
-        ),
-        (
-            terminal.on_green,
-            Shape.rectfill(
-                1, terminal.width - 3, 2, terminal.width - 1,
-            )
-        ),
-        (
-            terminal.on_red,
-            Shape.rectfill(
-                terminal.height - 3, terminal.width - 3,
-                terminal.height - 1, terminal.width - 1,
-            )
-        ),
+        (terminal.on_blue,    Shape.RectFill(terminal, 1, 1, 1, 1)),
+        (terminal.on_magenta, Shape.RectFill(terminal, -3, 1, -2, 1)),
+        (terminal.on_green,   Shape.RectFill(terminal, 1, -3, 1, -2)),
+        (terminal.on_red,     Shape.RectFill(terminal, -3, -3, -2, -2)),
     ]:
         print(color, str(shape), sep='', end='')
         sys.stdout.flush()
