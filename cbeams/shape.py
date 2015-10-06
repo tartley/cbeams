@@ -24,14 +24,14 @@ class Shape():
             2 ###
 
         '''
-        if y1 < 0:
-            y1 += terminal.height
-        if x1 < 0:
-            x1 += terminal.width
-        if y2 < 0:
-            y2 += terminal.height
-        if x2 < 0:
-            x2 += terminal.width
+        y1 %= terminal.height
+        y2 %= terminal.height
+        if y1 > y2:
+            raise ValueError('{}(y1) > {}(y2)'.format(y1, y2))
+        x1 %= terminal.width
+        x2 %= terminal.width
+        if x1 > x2:
+            raise ValueError('{}(x1) > {}(x2)'.format(x1, x2))
         return Shape([
             (y, x1, x2 - x1 + 1)
             for y in range(y1, y2 + 1)
