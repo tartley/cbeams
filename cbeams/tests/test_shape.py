@@ -42,22 +42,6 @@ def test_rectfill():
 def test_rectfill_should_handle_minimal_case():
     assert str(Shape.RectFill(1, 1, 1, 1)) == 'move(1,1) '
 
-@patch.object(Shape, 'terminal', get_mock_terminal(height=5, width=6))
-def test_rectfill_with_negative_coords_should_interpret_from_right_bottom():
-    '''
-         012345 x
-      y 0
-        1   ###
-        2   ###
-        3   ###
-        4
-    '''
-    assert str(Shape.RectFill(-4, -3, -2, -1)) == ( \
-        'move(1,3)' + ' ' * 3 +
-        'move(2,3)' + ' ' * 3 +
-        'move(3,3)' + ' ' * 3
-    )
-
 def test_rectfill_with_unordered_args_should_raise():
     with pytest.raises(ValueError):
         Shape.RectFill(1, 1, 0, 1)
