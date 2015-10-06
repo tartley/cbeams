@@ -38,7 +38,7 @@ class Shape():
             for y in range(y1, y2 + 1)
         ])
 
-    def CircleFill(y, x, radius, aspect=1.6):
+    def CircleFill(y, x, radius, aspect=1.633):
         '''
         A filled circle from an x,y center and radius.
         Radius may be a float, & fractional parts do make a visible difference.
