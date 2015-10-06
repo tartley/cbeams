@@ -1,16 +1,15 @@
 cbeams
-========
+======
 
-TODO: short description.
-
-TODO: long description.
+I've seen things you people wouldn't believe. Attack ships on fire off the
+shoulder of Orion. I watched c-beams glitter in the dark, near the Tannhäuser
+Gate. All those moments will be lost, in time, like tears in rain. Time to die.
 
 Dependencies
 ------------
 
-TODO: Operating systems.
-TODO: System dependencies.
 Python >= 3.5.
+A terminal or terminal emulator.
 
 Install
 -------
@@ -18,18 +17,6 @@ Install
 ::
 
     pip install cbeams
-
-Description
------------
-
-Plans
------
-
-Known Problems
---------------
-
-Alternatives
-------------
 
 Hacking
 -------
