@@ -8,7 +8,7 @@ class Shape():
 
     def __str__(self):
         return ''.join(
-            self.terminal.move(y, x) + ' ' * length
+            Shape.terminal.move(y, x) + ' ' * length
             for y, x, length in self.slivers
         )
 

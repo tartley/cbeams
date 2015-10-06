@@ -15,11 +15,6 @@ def call_process(command, expected_out=(), expected_err=()):
 
 class HappyDayTest(TestCase):
 
-    def test_no_args(self):
-        out, err = call_process('cbeams')
-        self.assertEqual(err, '')
-        self.assertEqual(out, 'Hello, World.\n')
-
     def test_help(self):
         out, err = call_process('cbeams --help')
         self.assertIn('cbeams v{}'.format(__version__), out)
