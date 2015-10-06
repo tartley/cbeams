@@ -26,6 +26,8 @@ def animate():
         (terminal.on_magenta, Shape.RectFill(-3, 1, -2, 1)),
         (terminal.on_green,   Shape.RectFill(1, -3, 1, -2)),
         (terminal.on_red,     Shape.RectFill(-3, -3, -2, -2)),
+        (terminal.on_yellow,
+            Shape.CircleFill(terminal.height // 2, terminal.width // 2, 14)),
     ]:
         print(color, str(shape), sep='', end='')
         sys.stdout.flush()

@@ -1,3 +1,4 @@
+import math
 
 class Shape():
 
@@ -36,4 +37,20 @@ class Shape():
             (y, x1, x2 - x1 + 1)
             for y in range(y1, y2 + 1)
         ])
+
+    def CircleFill(y, x, radius):
+        '''
+        A filled circle from an x,y center and radius.
+        Radius may be given as a float, which will make a visible difference.
+        '''
+        result = []
+        for yoffset in range(-radius + 1, radius):
+            height = radius - yoffset
+            xoffset = math.sqrt((radius - height / 2) * 2 * height)
+            result.append((
+                y + yoffset,
+                x - round(xoffset - 0.5),
+                round(xoffset - 0.5) * 2 + 1
+            ))
+        return Shape(result)
 

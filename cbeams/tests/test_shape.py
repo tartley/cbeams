@@ -66,3 +66,11 @@ def test_rectfill_with_unordered_args_should_raise():
     with pytest.raises(ValueError):
         Shape.RectFill(1, 1, 1, 0)
 
+
+def test_circlefill():
+    assert str(Shape.CircleFill(2, 2, 2)) == (
+        'move(1,1)' + ' ' * 3 +
+        'move(2,0)' + ' ' * 5 +
+        'move(3,1)' + ' ' * 3
+    )
+
