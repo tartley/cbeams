@@ -1,5 +1,4 @@
 from subprocess import PIPE, Popen
-from unittest import TestCase
 
 from cbeams import __version__
 
@@ -13,14 +12,12 @@ def call_process(command, expected_out=(), expected_err=()):
     return out, err
 
 
-class HappyDayTest(TestCase):
+def test_help():
+    out, err = call_process('cbeams --help')
+    assert 'cbeams v{}'.format(__version__) in out
+    assert 'Usage:' in out
 
-    def test_help(self):
-        out, err = call_process('cbeams --help')
-        self.assertIn('cbeams v{}'.format(__version__), out)
-        self.assertIn('Usage:', out)
-
-    def test_version(self):
-        out, _ = call_process('cbeams --version')
-        self.assertIn(__version__, out)
+def test_version():
+    out, _ = call_process('cbeams --version')
+    assert __version__ in out
 

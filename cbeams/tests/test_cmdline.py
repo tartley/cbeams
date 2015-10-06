@@ -1,32 +1,24 @@
-from unittest import TestCase
 from unittest.mock import patch
+
+import pytest
 
 from ..cmdline import parse
 
 
-def get_expected_options():
-    return {
-        '--help': False,
-        '--version': False,
-    }
+def test_no_args():
+    assert parse([]) == {'--help': False, '--version': False}
 
+def test_unrecognized():
+    with pytest.raises(SystemExit):
+        parse(['--unrecognized'])
 
-class CmdlineTest(TestCase):
+def test_help():
+    with patch('sys.stdout'):
+        with pytest.raises(SystemExit):
+            parse(['--help'])
 
-    def test_no_args(self):
-        self.assertEqual(parse([]), get_expected_options())
-
-    def test_unrecognized(self):
-        with self.assertRaises(SystemExit):
-            parse(['--unrecognized'])
-
-    def test_help(self):
-        with patch('sys.stdout'):
-            with self.assertRaises(SystemExit):
-                parse(['--help'])
-
-    def test_version(self):
-        with patch('sys.stdout'):
-            with self.assertRaises(SystemExit):
-                parse(['--version'])
+def test_version():
+    with patch('sys.stdout'):
+        with pytest.raises(SystemExit):
+            parse(['--version'])
 

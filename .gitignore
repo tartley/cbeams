@@ -1,5 +1,6 @@
 *.py[oc]
 *.egg-info
+.cache
 build
 dist
 tags
