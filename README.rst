@@ -1,15 +1,18 @@
 cbeams
 ======
 
-I've seen things you people wouldn't believe. Attack ships on fire off the
-shoulder of Orion. I watched c-beams glitter in the dark, near the Tannhäuser
-Gate. All those moments will be lost, in time, like tears in rain. Time to die.
+`cbeams` is a command-line program which draws pretty colored things in the
+terminal.
+
+    I've seen things you people wouldn't believe. Attack ships on fire off the
+    shoulder of Orion. I watched c-beams glitter in the dark, near the
+    Tannhäuser Gate. All those moments will be lost, in time, like tears in
+    rain. Time to die.
 
 Dependencies
 ------------
 
-Python >= 3.5.
-A terminal or terminal emulator.
+Python >= 3.5. Probably runs on earlier v3.x, but I haven't tried it.
 
 Install
 -------
@@ -17,6 +20,48 @@ Install
 ::
 
     pip install cbeams
+
+Usage
+-----
+
+See `cbeams -h`.
+
+Immediate Future Plans
+----------------------
+* Make the shape of small circles match that shown in the docstring for
+  CircleFill, i.e. be rotationally symmetrical when aspect=1. In particular,
+  right now there's a radius for which the output 'circle' is a single
+  5-character line of spaces. :-(
+  Start with tests for the precise shape of several small radius circles.
+* Move the Shape to string conversion out of `shape`, and delete that module's
+  usage of `terminal`.
+* Do the display of all objects using a single 'print' function, presumably
+  by aggregating all output into a single StringIO.
+* Clip all shapes to the terminal size before rendering
+    Check: Can we print at bottom right without causing scrolling?
+* Run until a key is pressed
+* Draw a shape which restores the original text/color.
+* Draw an expanding colored circle, with a restoring circle within it,
+  until the terminal is restored to its original state.
+* Create a wheel on PyPI
+    Backport this into python-app template
+* Create a redistributable binary for Linux
+    Backport this into python-app template
+* Create a redistributable binary for OSX
+    Backport this into python-app template
+* Run on Windows, using colorama
+* Create a redistributable binary for Windows
+    Backport this into python-app template
+* Draw an annulus - one circle subtracted from another.
+  Presumably we can speed up the animation using this?
+  First profile & measure how many simultaneous circles we can animate.
+
+Speculative Future Ideas
+------------------------
+* Quick poll of aspect ratio of various fonts in various terminals
+* Double buffering?
+* 256 colors?
+* Make a noise
 
 Hacking
 -------
