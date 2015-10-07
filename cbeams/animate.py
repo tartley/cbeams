@@ -48,7 +48,7 @@ def animate():
                     radius)),
         ]:
             print(color, str(shape), sep='', end='')
-            sys.stdout.flush()
         print(terminal.move(0, 0), end='')
+        sys.stdout.flush()
         time.sleep(0.02)
 
