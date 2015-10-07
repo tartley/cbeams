@@ -37,6 +37,13 @@ class Shape():
         '''
         A filled circle from an x,y center and radius.
         Radius may be a float, & fractional parts do make a visible difference.
+        e.g: CircleFill(1, 2, 1.5) gives:
+             x
+             01234
+          y 0  #
+            1 ###
+            2  #
+
         '''
         result = []
         for yoffset in range(-round(radius) + 1, round(radius)):
