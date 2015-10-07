@@ -16,6 +16,8 @@ def reset_on_exit(func):
         with terminal.location():
             try:
                 func(*args, **kwargs)
+            except KeyboardInterrupt:
+                pass
             finally:
                 print(terminal.normal)
     return inner
