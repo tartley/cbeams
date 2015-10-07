@@ -44,6 +44,8 @@ Immediate Future Plans
 * Draw an expanding colored circle, with a restoring circle within it,
   until the terminal is restored to its original state.
 * Create a wheel on PyPI
+    Using 'twine'? See https://packaging.python.org
+    Using setup.cfg instead of setup.py?
     Backport this into python-app template
 * Create a redistributable binary for Linux
     Backport this into python-app template
