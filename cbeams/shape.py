@@ -1,4 +1,4 @@
-import math
+from math import sqrt, trunc
 
 class Shape():
 
@@ -33,7 +33,7 @@ class Shape():
             for y in range(y1, y2 + 1)
         ])
 
-    def CircleFill(y, x, radius, aspect=1.633):
+    def CircleFill(y, x, radius):
         '''
         A filled circle from an x,y center and radius.
         Radius may be a float, & fractional parts do make a visible difference.
@@ -45,14 +45,19 @@ class Shape():
             2  #
 
         '''
-        result = []
-        for yoffset in range(-round(radius) + 1, round(radius)):
-            height = radius - yoffset
-            xoffset = math.sqrt((radius - height / 2) * 2 * height) * aspect
-            result.append((
-                y + yoffset,
-                x - round(xoffset - 0.5),
-                round(xoffset - 0.5) * 2 + 1
-            ))
-        return Shape(result)
+        if radius < 0:
+            raise ValueError('radius ({}) must be >0'.format(radius))
+        elif radius == 0:
+            slices = []
+        else:
+            slices = []
+            for yoffset in range(-trunc(radius), trunc(radius) + 1):
+                height = radius + yoffset
+                xoffset = sqrt((radius - height / 2) * 2 * height)
+                slices.append((
+                    y + yoffset,
+                    x - trunc(xoffset),
+                    trunc(xoffset) * 2 + 1
+                ))
+        return Shape(slices)
 

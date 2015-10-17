@@ -22,7 +22,7 @@ popve:
 # development
 
 test:
-	python -m unittest discover
+	py.test -q
 .PHONY: test
 
 pylint:

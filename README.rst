@@ -28,11 +28,6 @@ See `cbeams -h`.
 
 Immediate Future Plans
 ----------------------
-* Make the shape of small circles match that shown in the docstring for
-  CircleFill, i.e. be rotationally symmetrical when aspect=1. In particular,
-  right now there's a radius for which the output 'circle' is a single
-  5-character line of spaces. :-(
-  Start with tests for the precise shape of several small radius circles.
 * Move the Shape to string conversion out of `shape`, and delete that module's
   usage of `terminal`.
 * Do the display of all objects using a single 'print' function, presumably

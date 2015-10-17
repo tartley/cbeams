@@ -24,31 +24,13 @@ def reset_on_exit(func):
 
 @reset_on_exit
 def animate():
-    start = time.time() / 4
-    while True:
-        radius = terminal.height / 4 * (1 - math.cos(time.time() / 4 - start))
-        for color, shape in [
-            (terminal.on_blue, Shape.RectFill(1, 1, 1, 1)),
-            (terminal.on_magenta, Shape.RectFill(
-                -3 % terminal.height, 1,
-                -2 % terminal.height, 1
-            )),
-            (terminal.on_green, Shape.RectFill(
-                1, -3 % terminal.width,
-                1, -2 % terminal.width
-            )),
-            (terminal.on_red, Shape.RectFill(
-                -3 % terminal.height, -3 % terminal.width,
-                -2 % terminal.height, -2 % terminal.width
-            )),
-            (terminal.on_yellow,
-                Shape.CircleFill(
-                    terminal.height // 2,
-                    terminal.width // 2,
-                    radius)),
-        ]:
-            print(color, str(shape), sep='', end='')
-        print(terminal.move(0, 0), end='')
+    color = terminal.on_blue
+    for step in range(0, min(terminal.height, terminal.width) * 10 // 2):
+        radius = step / 10
+        shape = Shape.CircleFill(
+            terminal.height // 2, terminal.width // 2, radius
+        )
+        print(color, str(shape), terminal.move(0, 0), sep='', end='')
         sys.stdout.flush()
         time.sleep(0.02)
 
