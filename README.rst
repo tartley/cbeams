@@ -28,13 +28,15 @@ See `cbeams -h`.
 
 Immediate Future Plans
 ----------------------
-* Check: Can we print at bottom right without causing scrolling?
-* Run until a key is pressed
-* Draw a shape which restores the original text/color.
-* Draw an expanding colored circle, with a restoring circle within it,
+* Draw a shape which restores the original text/colors/style.
+* Draw an expanding colored circle, then restoring circle within it,
   until the terminal is restored to its original state.
+* Draw an annulus - one circle subtracted from another.
+  Presumably we can speed up the animation using this?
+  First profile & measure how many simultaneous circles we can animate.
+* Run until a key is pressed
 * Do the display of all objects using a single 'print' function, presumably
-  by aggregating all output into a single StringIO.
+  by aggregating all output into a single StringIO?
 * Create a wheel on PyPI
     Using 'twine'? See https://packaging.python.org
     Using setup.cfg instead of setup.py?
@@ -46,9 +48,6 @@ Immediate Future Plans
 * Run on Windows, using colorama
 * Create a redistributable binary for Windows
     Backport this into python-app template
-* Draw an annulus - one circle subtracted from another.
-  Presumably we can speed up the animation using this?
-  First profile & measure how many simultaneous circles we can animate.
 
 Speculative Future Ideas
 ------------------------

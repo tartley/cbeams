@@ -24,16 +24,15 @@ def reset_on_exit(func):
 
 @reset_on_exit
 def animate():
-    color = terminal.on_blue
     MAX_RADIUS = math.trunc(
         math.sqrt(
             (terminal.height / 2) ** 2 +
             (terminal.width  / 2) ** 2
         )
     ) + 1
-    STEPS = 10
-    for step in range(0, MAX_RADIUS * STEPS):
-        radius = step / STEPS
+    radius = 0.1
+    color = terminal.on_red
+    while radius < MAX_RADIUS:
         shape = Shape.CircleFill(
             terminal.height // 2, terminal.width // 2, radius
         )
@@ -43,4 +42,5 @@ def animate():
         )
         sys.stdout.flush()
         time.sleep(0.02)
+        radius *= 1.02
 
