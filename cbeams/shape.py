@@ -8,8 +8,8 @@ class Shape():
     def __init__(self, strips):
         self.strips = strips
 
-    @classmethod
-    def RectFill(cls, y1, x1, y2, x2):
+    @staticmethod
+    def RectFill(y1, x1, y2, x2):
         '''
         A rectangle from top left (y1, x1), to bottom right (y2, x2), inclusive.
         e.g. RectFill(0, 1, 2, 3) gives:
@@ -28,6 +28,7 @@ class Shape():
             for y in range(y1, y2 + 1)
         ])
 
+    @staticmethod
     def CircleFill(y, x, radius):
         '''
         A filled circle from an x,y center and radius.
