@@ -6,9 +6,9 @@ import time
 from blessings import Terminal
 
 from .shape import Shape
+from .render import render
 
 terminal = Terminal()
-Shape.terminal = terminal
 
 def reset_on_exit(func):
     @functools.wraps(func)
@@ -30,7 +30,10 @@ def animate():
         shape = Shape.CircleFill(
             terminal.height // 2, terminal.width // 2, radius
         )
-        print(color, str(shape), terminal.move(0, 0), sep='', end='')
+        print(
+            color, render(terminal, shape), terminal.move(0, 0),
+            sep='', end=''
+        )
         sys.stdout.flush()
         time.sleep(0.02)
 

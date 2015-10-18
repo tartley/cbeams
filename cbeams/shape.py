@@ -1,17 +1,12 @@
 from math import sqrt, trunc
 
 class Shape():
-
-    terminal = None
-
+    '''
+    Stores the geometry of a shape as a sequence of horizontal strips:
+        [(x, y, length)... ]
+    '''
     def __init__(self, strips):
         self.strips = strips
-
-    def __str__(self):
-        return ''.join(
-            self.terminal.move(y, x) + ' ' * length
-            for y, x, length in self.strips
-        )
 
     @classmethod
     def RectFill(cls, y1, x1, y2, x2):
@@ -37,13 +32,7 @@ class Shape():
         '''
         A filled circle from an x,y center and radius.
         Radius may be a float, & fractional parts do make a visible difference.
-        e.g: CircleFill(1, 2, 1.5) gives:
-             x
-             01234
-          y 0  #
-            1 ###
-            2  #
-
+        See tests for precise shape of some small-radius circles.
         '''
         if radius < 0:
             raise ValueError('radius ({}) must be >0'.format(radius))

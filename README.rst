@@ -28,16 +28,14 @@ See `cbeams -h`.
 
 Immediate Future Plans
 ----------------------
-* Move the Shape to string conversion out of `shape`, and delete that module's
-  usage of `terminal`.
-* Do the display of all objects using a single 'print' function, presumably
-  by aggregating all output into a single StringIO.
 * Clip all shapes to the terminal size before rendering
     Check: Can we print at bottom right without causing scrolling?
 * Run until a key is pressed
 * Draw a shape which restores the original text/color.
 * Draw an expanding colored circle, with a restoring circle within it,
   until the terminal is restored to its original state.
+* Do the display of all objects using a single 'print' function, presumably
+  by aggregating all output into a single StringIO.
 * Create a wheel on PyPI
     Using 'twine'? See https://packaging.python.org
     Using setup.cfg instead of setup.py?
