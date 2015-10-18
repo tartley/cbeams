@@ -8,6 +8,17 @@ class Shape():
     def __init__(self, strips):
         self.strips = strips
 
+    def clipped(self, height, width):
+        '''
+        Yields a sequence of strips that have been clipped to lie within
+        (0, 0) to (height, width)
+        '''
+        for y, x, length in self.strips:
+            if x < 0:
+                length += x
+                x = 0
+            yield y, x, length
+
     @staticmethod
     def RectFill(y1, x1, y2, x2):
         '''

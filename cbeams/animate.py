@@ -25,8 +25,15 @@ def reset_on_exit(func):
 @reset_on_exit
 def animate():
     color = terminal.on_blue
-    for step in range(0, min(terminal.height, terminal.width) * 10 // 2):
-        radius = step / 10
+    MAX_RADIUS = math.trunc(
+        math.sqrt(
+            (terminal.height / 2) ** 2 +
+            (terminal.width  / 2) ** 2
+        )
+    ) + 1
+    STEPS = 10
+    for step in range(0, MAX_RADIUS * STEPS):
+        radius = step / STEPS
         shape = Shape.CircleFill(
             terminal.height // 2, terminal.width // 2, radius
         )
