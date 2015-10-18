@@ -28,8 +28,7 @@ See `cbeams -h`.
 
 Immediate Future Plans
 ----------------------
-* Clip all shapes to the terminal size before rendering
-    Check: Can we print at bottom right without causing scrolling?
+* Check: Can we print at bottom right without causing scrolling?
 * Run until a key is pressed
 * Draw a shape which restores the original text/color.
 * Draw an expanding colored circle, with a restoring circle within it,

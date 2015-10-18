@@ -90,3 +90,41 @@ def test_circlefill_radius_sqrt_5():
     assert Shape.CircleFill(3, 3, sqrt(5)).strips == EXPECTED
     assert Shape.CircleFill(3, 3, sqrt(8) - EPSILON).strips == EXPECTED
 
+def test_clipped_left():
+    shape = Shape([
+        (1, 0, 10), # not clipped
+        (2, -2, 6), # clipped to length 4
+        (3, -4, 5), # clipped to length 1
+        (4, -6, 6), # clipped to length 0, i.e. removed entirely
+    ])
+    assert list(shape.clipped(99, 10)) == [
+        (1, 0, 10),
+        (2, 0, 4),
+        (3, 0, 1),
+    ]
+
+def test_clipped_right():
+    shape = Shape([
+        (1, 0, 10), # not clipped
+        (2, 0, 11), # clipped to length 10
+        (3, 9, 99), # clipped to length 1
+        (4, 10, 99), # clipped to length 0, i.e. removed entirely
+    ])
+    assert list(shape.clipped(99, 10)) == [
+        (1, 0, 10),
+        (2, 0, 10),
+        (3, 9, 1),
+    ]
+
+def test_clipped_top_and_bottom():
+    shape = Shape([
+        (-1, 0, 10), # removed entirely
+        (0, 0, 10), # not clipped
+        (9, 0, 10), # not clipped
+        (10, 0, 10), # removed entirely
+    ])
+    assert list(shape.clipped(10, 99)) == [
+        (0, 0, 10),
+        (9, 0, 10),
+    ]
+
