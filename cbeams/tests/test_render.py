@@ -5,7 +5,7 @@ from ..render import render
 
 def get_mock_terminal(**overrides):
     attrs = dict(
-        move=lambda x, y: 'move({},{})'.format(x, y),
+        move='move({},{})'.format,
         height=11,
         width=22,
     )
