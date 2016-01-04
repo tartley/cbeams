@@ -12,7 +12,7 @@ terminal.
 Dependencies
 ------------
 
-Python >= 3.5. Probably runs on earlier v3.x, but I haven't tried it.
+Python >= 3.5. Probably also runs on earlier v3.x, but I haven't tried it.
 
 Install
 -------
@@ -28,12 +28,8 @@ See `cbeams -h`.
 
 Immediate Future Plans
 ----------------------
-* Draw a shape which restores the original text/colors/style.
-* Draw an expanding colored circle, then restoring circle within it,
-  until the terminal is restored to its original state.
-* Draw an annulus - one circle subtracted from another.
-  Presumably we can speed up the animation using this?
-  First profile & measure how many simultaneous circles we can animate.
+* Draw a tunnel by drawing annulus (annuli?) - one circle subtracted from
+  another.
 * Run until a key is pressed
 * Do the display of all objects using a single 'print' function, presumably
   by aggregating all output into a single StringIO?
@@ -47,14 +43,6 @@ Immediate Future Plans
     Backport this into python-app template
 * Run on Windows, using colorama
 * Create a redistributable binary for Windows
-    Backport this into python-app template
-
-Speculative Future Ideas
-------------------------
-* Quick poll of aspect ratio of various fonts in various terminals
-* Double buffering?
-* 256 colors?
-* Make a noise
 
 Hacking
 -------

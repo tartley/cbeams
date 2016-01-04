@@ -6,8 +6,7 @@
 # virtualenv
 
 ve:
-	# Make can't execute 'mkvirtualenv', 'cos we don't use interactive shell.
-	# So execute it yourself:
+	# Make can't execute this 'cos we don't use an interactive shell:
 	# mkvirtualenv -p $(which python3.5) -a . -r requirements-dev.txt cbeams
 
 download-deps:
