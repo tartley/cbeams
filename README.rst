@@ -12,7 +12,7 @@ terminal.
 Dependencies
 ------------
 
-Python >= 3.5. Probably also runs on earlier v3.x, but I haven't tried it.
+Python 3.5. Probably also runs on other 3.x, but I haven't tried it.
 
 Install
 -------
