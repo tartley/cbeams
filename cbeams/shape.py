@@ -1,5 +1,30 @@
 from math import sqrt, trunc
 
+def rect(y1, x1, y2, x2):
+    '''
+    A rectangle from top left (y1, x1), to bottom right (y2, x2), inclusive.
+    e.g. rect(0, 1, 2, 3) gives:
+    [
+        (0, 1, 3),
+        (1, 1, 3),
+        (2, 1, 3),
+    ]
+    i.e:
+         x
+         01234
+      y 0 ###
+        1 ###
+        2 ###
+    '''
+    if y1 > y2:
+        raise ValueError('{}(y1) > {}(y2)'.format(y1, y2))
+    if x1 > x2:
+        raise ValueError('{}(x1) > {}(x2)'.format(x1, x2))
+    return Shape([
+        (y, x1, x2 - x1 + 1)
+        for y in range(y1, y2 + 1)
+    ])
+
 class Shape():
     '''
     Stores the geometry of a shape as a sequence of horizontal strips:
@@ -7,26 +32,6 @@ class Shape():
     '''
     def __init__(self, strips):
         self.strips = strips
-
-    @staticmethod
-    def RectFill(y1, x1, y2, x2):
-        '''
-        A rectangle from top left (y1, x1), to bottom right (y2, x2), inclusive.
-        e.g. RectFill(0, 1, 2, 3) gives:
-             x
-             01234
-          y 0 ###
-            1 ###
-            2 ###
-        '''
-        if y1 > y2:
-            raise ValueError('{}(y1) > {}(y2)'.format(y1, y2))
-        if x1 > x2:
-            raise ValueError('{}(x1) > {}(x2)'.format(x1, x2))
-        return Shape([
-            (y, x1, x2 - x1 + 1)
-            for y in range(y1, y2 + 1)
-        ])
 
     @staticmethod
     def CircleFill(y, x, radius):

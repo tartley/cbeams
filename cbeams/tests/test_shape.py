@@ -2,6 +2,7 @@ from math import sqrt
 
 import pytest
 
+from .. import shape
 from ..shape import Shape
 
 # If testing the x<y case, we use x = y - EPSILON
@@ -12,21 +13,21 @@ def test_constructor():
     assert shape.strips == 'strips'
 
 
-def test_rectfill():
-    assert Shape.RectFill(0, 1, 2, 4).strips == [
+def test_rect():
+    assert shape.rect(0, 1, 2, 4).strips == [
         (0, 1, 4),
         (1, 1, 4),
         (2, 1, 4),
     ]
 
-def test_rectfill_should_handle_minimal_case():
-    assert Shape.RectFill(1, 1, 1, 1).strips == [ (1, 1, 1) ]
+def test_rect_should_handle_minimal_case():
+    assert shape.rect(1, 1, 1, 1).strips == [ (1, 1, 1) ]
 
-def test_rectfill_with_unordered_args_should_raise():
+def test_rect_with_unordered_args_should_raise():
     with pytest.raises(ValueError):
-        Shape.RectFill(1, 1, 0, 1)
+        shape.rect(1, 1, 0, 1)
     with pytest.raises(ValueError):
-        Shape.RectFill(1, 1, 1, 0)
+        shape.rect(1, 1, 1, 0)
 
 def test_circlefill_radius_lt_0_should_raise():
     with pytest.raises(ValueError):
