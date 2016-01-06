@@ -1,11 +1,12 @@
-from contextlib import contextmanager
+import contextlib
 import functools
+import random
 
 from blessings import Terminal
 
 terminal = Terminal()
 
-@contextmanager
+@contextlib.contextmanager
 def reset_on_exit():
     print(terminal.civis)
     try:
@@ -14,6 +15,15 @@ def reset_on_exit():
         pass
     finally:
         print(terminal.cnorm + terminal.normal)
+
+def center():
+    return terminal.height // 2, terminal.width // 2
+
+
+def rand_color():
+    assert terminal.number_of_colors > 0
+    return terminal.on_color(random.randint(1, terminal.number_of_colors - 1))
+
 
 def clip(strips):
     '''
