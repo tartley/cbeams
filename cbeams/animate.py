@@ -22,11 +22,7 @@ def animate():
         shape = Shape.CircleFill(
             terminal.height // 2, terminal.width // 2, radius
         )
-        print(
-            color, render(shape),
-            terminal.move(0, 0),
-            sep='', end=''
-        )
+        print(color, render(shape), sep='', end='')
         sys.stdout.flush()
         time.sleep(0.02)
         radius *= 1.02

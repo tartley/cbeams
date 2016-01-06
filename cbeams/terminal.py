@@ -7,8 +7,11 @@ terminal = Terminal()
 
 @contextmanager
 def reset_on_exit():
+    print(terminal.civis)
     try:
         yield
+    except KeyboardInterrupt:
+        pass
     finally:
         print(terminal.cnorm + terminal.normal)
 
