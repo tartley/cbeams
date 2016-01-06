@@ -23,7 +23,8 @@ def animate():
             terminal.height // 2, terminal.width // 2, radius
         )
         print(
-            color, render(terminal, shape), terminal.move(0, 0),
+            color, render(shape),
+            terminal.move(0, 0),
             sep='', end=''
         )
         sys.stdout.flush()

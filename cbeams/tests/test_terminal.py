@@ -1,4 +1,4 @@
-from unittest.mock import Mock
+from unittest.mock import Mock, patch
 
 from ..shape import Shape
 from ..terminal import render
@@ -12,14 +12,16 @@ def get_mock_terminal(**overrides):
     attrs.update(overrides)
     return Mock(**attrs)
 
+@patch('cbeams.terminal.terminal', get_mock_terminal())
 def test_render():
     shape = Shape([(1, 2, 3), (4, 5, 6)])
-    assert render(get_mock_terminal(), shape) == \
+    assert render(shape) == \
         'move(1,2)' + ' ' * 3 + \
         'move(4,5)' + ' ' * 6
 
+@patch('cbeams.terminal.terminal', get_mock_terminal())
 def test_render_should_clip():
     shape = Shape([(1, -2, 26)])
-    assert render(get_mock_terminal(), shape) == 'move(1,0)' + ' ' * 22
+    assert render(shape) == 'move(1,0)' + ' ' * 22
 
 
