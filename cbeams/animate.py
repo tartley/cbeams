@@ -18,7 +18,7 @@ class Firework():
         self.y = y
         self.x = x
         self.color = terminal.rand_color()
-        self.max = random.uniform(5, 20)
+        self.max = random.uniform(1.4, 4) ** 2
         self.outer = 0.0
         self.inner = 0.0
         self.inner_last = self.inner
