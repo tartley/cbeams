@@ -8,6 +8,11 @@ from blessings import Terminal
 from . import shape, terminal
 
 class Firework():
+    '''
+    A firework looks like an annulus (ring), but is actually drawn as *two*
+    annuli - one broad colored one, with a thinner black one within it to
+    erase the color as the ring expands.
+    '''
 
     def __init__(self, y, x):
         self.y = y
@@ -15,13 +20,11 @@ class Firework():
         self.color = terminal.rand_color()
         self.max = random.uniform(5, 20)
         self.outer = 0.0
-        self.outer_last = self.outer
         self.inner = 0.0
         self.inner_last = self.inner
 
     def update(self):
-        if self.outer < self.max * 0.99:
-            self.outer_last = self.outer
+        if self.outer < self.max * 0.95:
             self.outer += (self.max - self.outer) * 0.1
         if self.outer > self.max * 0.5:
             self.inner_last = self.inner
@@ -34,7 +37,7 @@ class Firework():
     def draw(self):
         sys.stdout.write(self.color)
         sys.stdout.write(terminal.render(
-            shape.annulus(self.y, self.x, self.outer, self.outer_last)
+            shape.annulus(self.y, self.x, self.outer, self.inner)
         ))
         sys.stdout.write(terminal.terminal.on_black)
         sys.stdout.write(terminal.render(
@@ -60,4 +63,5 @@ def animate():
         for item in world:
             item.draw()
         sys.stdout.flush()
+        time.sleep(0.01)
 
