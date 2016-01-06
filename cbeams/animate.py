@@ -14,21 +14,25 @@ class Firework():
         self.x = x
         self.color = terminal.rand_color()
         self.max = random.uniform(5, 20)
-        self.inner = 1.0
+        self.outer = 0.0
+        self.outer_last = self.outer
 
     def update(self):
-        self.inner += (self.max - self.inner) * 0.1
+        self.outer_last = self.outer
+        self.outer += (self.max - self.outer) * 0.1
 
     @property
     def deleteme(self):
-        return self.max - self.inner < 0.01
+        return self.max - self.outer < 0.01
 
     def draw(self):
         sys.stdout.write(self.color)
         sys.stdout.write(terminal.render(
-            shape.disc(self.y, self.x, self.inner)
+            shape.annulus(self.y, self.x, self.outer, self.outer_last)
         ))
 
+def get_new_firework():
+    return Firework(*terminal.rand_coord())
 
 def animate():
     world = set([Firework(*terminal.center())])
@@ -36,8 +40,8 @@ def animate():
     last = 0
     while True:
         elapsed = time.time() - start
-        if elapsed - last > 0.25:
-            world.add(Firework(*terminal.rand_coord()))
+        if elapsed - last > 0.05:
+            world.add(get_new_firework())
             last = elapsed
         for item in world:
             item.update()
@@ -46,5 +50,4 @@ def animate():
         for item in world:
             item.draw()
         sys.stdout.flush()
-        time.sleep(0.02)
 
