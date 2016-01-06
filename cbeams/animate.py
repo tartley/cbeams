@@ -19,6 +19,7 @@ class Firework():
         self.x = x
         self.color = terminal.rand_color()
         self.max = random.uniform(1.4, 4) ** 2
+        self.thickness = random.uniform(0.1, 0.9)
         self.outer = 0.0
         self.inner = 0.0
         self.inner_last = self.inner
@@ -26,7 +27,7 @@ class Firework():
     def update(self):
         if self.outer < self.max * 0.95:
             self.outer += (self.max - self.outer) * 0.1
-        if self.outer > self.max * 0.5:
+        if self.outer > self.max * self.thickness:
             self.inner_last = self.inner
             self.inner += (self.max - self.inner) * 0.1
 
