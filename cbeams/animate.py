@@ -7,37 +7,37 @@ from blessings import Terminal
 
 from . import shape, terminal
 
-class Annulus():
+class Firework():
 
     def __init__(self, y, x):
         self.y = y
         self.x = x
         self.color = terminal.rand_color()
-        self.radius = 1.0
-        self.growth = 1.4
-        self.deleteme = False
+        self.max = random.uniform(5, 20)
+        self.inner = 1.0
 
     def update(self):
-        self.radius += self.growth
-        self.growth /= 1.1
-        if self.growth < 0.01:
-            self.deleteme = True
+        self.inner += (self.max - self.inner) * 0.1
+
+    @property
+    def deleteme(self):
+        return self.max - self.inner < 0.01
 
     def draw(self):
         sys.stdout.write(self.color)
         sys.stdout.write(terminal.render(
-            shape.disc(self.y, self.x, self.radius)
+            shape.disc(self.y, self.x, self.inner)
         ))
 
 
 def animate():
-    world = set([Annulus(*terminal.center())])
+    world = set([Firework(*terminal.center())])
     start = time.time()
     last = 0
     while True:
         elapsed = time.time() - start
         if elapsed - last > 0.25:
-            world.add(Annulus(*terminal.rand_coord()))
+            world.add(Firework(*terminal.rand_coord()))
             last = elapsed
         for item in world:
             item.update()
