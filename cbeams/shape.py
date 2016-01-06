@@ -51,19 +51,3 @@ class Shape():
                 ))
         return Shape(slices)
 
-    def clipped(self, height, width):
-        '''
-        Yield a sequence of this shape's strips after clipping them to lie
-        within (0, 0) to (height, width).
-        '''
-        for y, x, length in self.strips:
-            if not(0 <= y < height):
-                continue
-            if x < 0:
-                length += x
-                x = 0
-            if length + x > width:
-                length = width - x
-            if length > 0:
-                yield y, x, length
-
