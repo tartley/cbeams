@@ -22,7 +22,7 @@ class Firework():
         self.max = 2 + min(100, random.expovariate(0.2))
 
         # How close 'outer' gets to max before inner hole appears
-        self.thickness = random.uniform(0.2, 0.95)
+        self.thickness = random.triangular(0.2, 0.95)
 
         # Outer and inner radius
         self.outer = 0.0
