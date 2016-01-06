@@ -5,7 +5,7 @@ import time
 from blessings import Terminal
 
 from .shape import Shape
-from .render import render
+from .terminal import render
 
 terminal = Terminal()
 

@@ -1,7 +1,7 @@
 from unittest.mock import Mock
 
 from ..shape import Shape
-from ..render import render
+from ..terminal import render
 
 def get_mock_terminal(**overrides):
     attrs = dict(
@@ -21,4 +21,5 @@ def test_render():
 def test_render_should_clip():
     shape = Shape([(1, -2, 26)])
     assert render(get_mock_terminal(), shape) == 'move(1,0)' + ' ' * 22
+
 
