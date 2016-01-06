@@ -20,15 +20,16 @@ class Firework():
         self.inner_last = self.inner
 
     def update(self):
-        self.outer_last = self.outer
-        self.outer += (self.max - self.outer) * 0.1
-        if self.outer > self.max / 2:
+        if self.outer < self.max * 0.99:
+            self.outer_last = self.outer
+            self.outer += (self.max - self.outer) * 0.1
+        if self.outer > self.max * 0.5:
             self.inner_last = self.inner
             self.inner += (self.max - self.inner) * 0.1
 
     @property
     def deleteme(self):
-        return self.max - self.outer < 0.001
+        return self.inner > self.outer
 
     def draw(self):
         sys.stdout.write(self.color)
