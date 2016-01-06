@@ -28,14 +28,15 @@ See `cbeams -h`.
 
 Immediate Future Plans
 ----------------------
-* Draw a tunnel by drawing annulus (annuli?) - one circle subtracted from
-  another.
-* Run until a key is pressed
-* Do the display of all objects using a single 'print' function, presumably
-  by aggregating all output into a single StringIO?
-* Create a wheel on PyPI
-    Using 'twine'? See https://packaging.python.org
+* By default, run on alt-screen and restore on exit.
+* Accept command-line arg to overwrite current visible terminal content.
+* If a key is pressed (other than ctrl-c) then:
+    stop producing new fireworks,
+    run until all current fireworks have completed
+* Upload to PyPI
     Using setup.cfg instead of setup.py?
+* Create a wheel
+    Using 'twine'? See https://packaging.python.org
     Backport this into python-app template
 * Create a redistributable binary for Linux
     Backport this into python-app template

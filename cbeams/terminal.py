@@ -10,7 +10,8 @@ terminal = Terminal()
 def reset_on_exit():
     print(terminal.civis)
     try:
-        yield
+        with terminal.location():
+            yield
     except KeyboardInterrupt:
         pass
     finally:
