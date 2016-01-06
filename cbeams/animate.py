@@ -15,13 +15,22 @@ class Firework():
     '''
 
     def __init__(self, y, x):
+        # Center point
         self.y = y
         self.x = x
+
         self.color = terminal.rand_color()
-        self.max = random.uniform(1.4, 4) ** 2
-        self.thickness = random.uniform(0.1, 0.9)
+
+        # The max radius we will reach
+        self.max = random.uniform(1.2, 2.3) ** 4
+
+        # How close 'outer' gets to max before inner hole appears
+        self.thickness = random.uniform(0.2, 0.95)
+
+        # Outer and inner radius
         self.outer = 0.0
         self.inner = 0.0
+        # The value of 'inner' on the last frame
         self.inner_last = self.inner
 
     def update(self):
