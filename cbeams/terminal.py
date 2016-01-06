@@ -20,6 +20,13 @@ def center():
     return terminal.height // 2, terminal.width // 2
 
 
+def rand_coord():
+    return (
+        random.randint(0, terminal.height - 1),
+        random.randint(0, terminal.width - 1)
+    )
+
+
 def rand_color():
     assert terminal.number_of_colors > 0
     return terminal.on_color(random.randint(1, terminal.number_of_colors - 1))

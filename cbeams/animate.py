@@ -1,4 +1,5 @@
 import math
+import random
 import sys
 import time
 
@@ -13,7 +14,7 @@ class Annulus():
         self.x = x
         self.color = terminal.rand_color()
         self.radius = 1.0
-        self.growth = 2.0
+        self.growth = 1.4
         self.deleteme = False
 
     def update(self):
@@ -31,7 +32,13 @@ class Annulus():
 
 def animate():
     world = set([Annulus(*terminal.center())])
-    while len(world) > 0:
+    start = time.time()
+    last = 0
+    while True:
+        elapsed = time.time() - start
+        if elapsed - last > 0.25:
+            world.add(Annulus(*terminal.rand_coord()))
+            last = elapsed
         for item in world:
             item.update()
         for item in [item for item in world if item.deleteme]:
