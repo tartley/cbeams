@@ -32,10 +32,10 @@ class Firework():
 
     def update(self):
         if self.outer < self.max * 0.95:
-            self.outer += (self.max - self.outer) * 0.1
+            self.outer += (self.max - self.outer) * 0.08
         if self.outer > self.max * self.thickness:
             self.inner_last = self.inner
-            self.inner += (self.max - self.inner) * 0.1
+            self.inner += (self.max - self.inner) * 0.08
 
     @property
     def deleteme(self):
