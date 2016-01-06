@@ -6,24 +6,6 @@ from .. import shape
 
 EPSILON = 0.01
 
-
-def test_rect():
-    assert shape.rect(0, 1, 2, 4) == [
-        (0, 1, 4),
-        (1, 1, 4),
-        (2, 1, 4),
-    ]
-
-def test_rect_should_handle_minimal_case():
-    assert shape.rect(1, 1, 1, 1) == [ (1, 1, 1) ]
-
-def test_rect_with_unordered_args_should_raise():
-    with pytest.raises(ValueError):
-        shape.rect(1, 1, 0, 1)
-    with pytest.raises(ValueError):
-        shape.rect(1, 1, 1, 0)
-
-
 def test_disc_radius_lt_0_should_raise():
     with pytest.raises(ValueError):
         shape.disc(1, 1, -EPSILON)
