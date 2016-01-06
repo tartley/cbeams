@@ -9,20 +9,17 @@ from . import shape, terminal
 
 class Firework():
     '''
-    A firework looks like an annulus (ring), but is actually drawn as *two*
-    annuli - one broad colored one, with a thinner black one within it to
-    erase the color as the ring expands.
+    A firework looks like an expanding annulus.
+    (i.e. a ring, a colored circle with a black hole in the middle).
     '''
-
-    def __init__(self, y, x):
+    def __init__(self):
         # Center point
-        self.y = y
-        self.x = x
+        self.y, self.x = terminal.rand_coord()
 
         self.color = terminal.rand_color()
 
         # The max radius we will reach
-        self.max = random.uniform(1.2, 2.3) ** 4
+        self.max = 2 + min(100, random.expovariate(0.2))
 
         # How close 'outer' gets to max before inner hole appears
         self.thickness = random.uniform(0.2, 0.95)
@@ -54,17 +51,14 @@ class Firework():
             shape.annulus(self.y, self.x, self.inner, self.inner_last)
         ))
 
-def get_new_firework():
-    return Firework(*terminal.rand_coord())
-
 def animate():
-    world = set([Firework(*terminal.center())])
+    world = set()
     start = time.time()
     last = 0
     while True:
         elapsed = time.time() - start
         if elapsed - last > 0.05:
-            world.add(get_new_firework())
+            world.add(Firework())
             last = elapsed
         for item in world:
             item.update()
