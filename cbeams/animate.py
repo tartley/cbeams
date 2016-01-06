@@ -1,4 +1,3 @@
-import functools
 import math
 import sys
 import time
@@ -10,19 +9,6 @@ from .render import render
 
 terminal = Terminal()
 
-def reset_on_exit(func):
-    @functools.wraps(func)
-    def inner(*args, **kwargs):
-        with terminal.location():
-            try:
-                func(*args, **kwargs)
-            except KeyboardInterrupt:
-                pass
-            finally:
-                print(terminal.normal)
-    return inner
-
-@reset_on_exit
 def animate():
     MAX_RADIUS = math.trunc(
         math.sqrt(
@@ -30,7 +16,7 @@ def animate():
             (terminal.width  / 2) ** 2
         )
     ) + 1
-    radius = 0.1
+    radius = 1.0
     color = terminal.on_red
     while radius < MAX_RADIUS:
         shape = Shape.CircleFill(
