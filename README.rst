@@ -1,18 +1,21 @@
 cbeams
 ======
 
-`cbeams` is a command-line program which draws pretty colored things in the
-terminal.
-
-    I've seen things you people wouldn't believe. Attack ships on fire off the
-    shoulder of Orion. I watched c-beams glitter in the dark, near the
-    Tannhäuser Gate. All those moments will be lost, in time, like tears in
-    rain. Time to die.
+`cbeams` is a command-line program which draws pretty animated colored circles
+in the terminal.
 
 Dependencies
 ------------
 
-Python 3.5. Probably also runs on other 3.x, but I haven't tried it.
+Developed on on Ubuntu 14.04.
+Likely runs on other Linux.
+Might work on OSX.
+Will not work on Windows. The 'cmd' terminal does not accept ANSI terminal
+codes. Could probably be made to work using 'colorama', or ansi.sys.
+
+Requires Python 3.5. Probably also runs on other 3.x, but I haven't tried it.
+
+Python dependencies are specified in setup.py.
 
 Install
 -------
