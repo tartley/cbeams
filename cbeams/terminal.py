@@ -31,9 +31,9 @@ def clip(strips):
             yield y, x, length
 
 
-def render(shape):
+def render(strips):
     return ''.join(
         terminal.move(y, x) + ' ' * length
-        for y, x, length in clip(shape.strips)
+        for y, x, length in clip(strips)
     )
 

@@ -3,7 +3,8 @@ from math import sqrt, trunc
 def rect(y1, x1, y2, x2):
     '''
     Given rectangle corners top left (y1, x1) to botto right (y2, x2) (incl),
-    returns that rectangle as a series of horizontal strips.
+    returns that rectangle as a series of horizontal strips, where each strip
+    is (y, x, length).
     e.g. rect(0, 1, 2, 3) gives:
     [
         (0, 1, 3),
@@ -21,10 +22,10 @@ def rect(y1, x1, y2, x2):
         raise ValueError('{}(y1) > {}(y2)'.format(y1, y2))
     if x1 > x2:
         raise ValueError('{}(x1) > {}(x2)'.format(x1, x2))
-    return Shape([
+    return [
         (y, x1, x2 - x1 + 1)
         for y in range(y1, y2 + 1)
-    ])
+    ]
 
 def disc(y, x, radius):
     '''
@@ -35,7 +36,7 @@ def disc(y, x, radius):
     if radius < 0:
         raise ValueError('radius ({}) must be >0'.format(radius))
     elif radius == 0:
-        strips = []
+        return []
     else:
         strips = []
         for yoffset in range(-trunc(radius), trunc(radius) + 1):
@@ -46,13 +47,5 @@ def disc(y, x, radius):
                 x - trunc(xoffset),
                 trunc(xoffset) * 2 + 1
             ))
-    return Shape(strips)
-
-class Shape():
-    '''
-    Stores the geometry of a shape as a sequence of horizontal strips:
-        [(x, y, length)... ]
-    '''
-    def __init__(self, strips):
-        self.strips = strips
+        return strips
 
