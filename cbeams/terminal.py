@@ -1,5 +1,6 @@
 import contextlib
 import functools
+import sys
 import random
 
 from blessings import Terminal
@@ -8,14 +9,18 @@ terminal = Terminal()
 
 @contextlib.contextmanager
 def reset_on_exit():
-    print(terminal.civis)
     try:
-        with terminal.location():
+        with terminal.fullscreen():
+            sys.stdout.write(
+                terminal.civis +
+                terminal.on_black +
+                terminal.clear
+            )
             yield
     except KeyboardInterrupt:
         pass
     finally:
-        print(terminal.cnorm + terminal.normal)
+        sys.stdout.write(terminal.cnorm + terminal.normal)
 
 def center():
     return terminal.height // 2, terminal.width // 2

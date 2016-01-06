@@ -28,7 +28,6 @@ See `cbeams -h`.
 
 Immediate Future Plans
 ----------------------
-* By default, run on alt-screen and restore on exit.
 * Accept command-line arg to overwrite current visible terminal content.
 * If a key is pressed (other than ctrl-c) then:
     stop producing new fireworks,
@@ -40,6 +39,7 @@ Immediate Future Plans
     Backport this into python-app template
 * Create a redistributable binary for Linux
     Backport this into python-app template
+* Switch to python3.5.1
 * Create a redistributable binary for OSX
     Backport this into python-app template
 * Run on Windows, using colorama
