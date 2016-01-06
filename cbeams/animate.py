@@ -57,7 +57,7 @@ def animate():
     last = 0
     while True:
         elapsed = time.time() - start
-        if elapsed - last > 0.05:
+        if elapsed - last > 0.02:
             world.add(Firework())
             last = elapsed
         for item in world:
