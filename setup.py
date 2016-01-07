@@ -78,9 +78,9 @@ def get_sdist_config():
         url='http://pypi.python.org/pypi/%s/' % (NAME,),
         author='Jonathan Hartley',
         author_email='tartley@tartley.com',
-        keywords='TODO space separated words',
+        keywords='console blessings ansi terminal animation',
         entry_points = {
-            'console_scripts': ['{0} = {0}.__main__:main'.format(NAME)],
+            'console_scripts': ['{0}={0}.__main__:main'.format(NAME)],
             'gui_scripts': [],
         },
         # Application dependencies, pinned:
@@ -88,7 +88,7 @@ def get_sdist_config():
             'docopt==0.6.1',
             'blessings==1.6',
         ],
-        packages=find_packages(exclude=('*.tests',)),
+        packages=find_packages(exclude=['*.tests']),
         #include_package_data=True,
         #package_data={
             #'package.subpackage': ['globs'],
@@ -103,10 +103,10 @@ def get_sdist_config():
         # see classifiers:
         # http://pypi.python.org/pypi?:action=list_classifiers
         classifiers=[
-            'Development Status :: 1 - Planning',
+            #'Development Status :: 1 - Planning',
             #'Development Status :: 2 - Pre-Alpha',
             #'Development Status :: 3 - Alpha',
-            #'Development Status :: 4 - Beta',
+            'Development Status :: 4 - Beta',
             #'Development Status :: 5 - Production/Stable',
             #'Development Status :: 6 - Mature',
             #'Development Status :: 7 - Inactive',
@@ -116,18 +116,18 @@ def get_sdist_config():
             #'Environment :: Web Environment',
             #'Environment :: Win32 (MS Windows)',
             #'Environment :: X11 Applications',
-            #'Intended Audience :: Developers',
+            'Intended Audience :: Developers',
             #'Intended Audience :: End Users/Desktop',
             'License :: OSI Approved :: BSD License',
             'Natural Language :: English',
-            'Operating System :: Microsoft :: Windows :: Windows 7',
+            #'Operating System :: Microsoft :: Windows :: Windows 7',
             'Operating System :: MacOS :: MacOS X',
             'Operating System :: POSIX :: Linux',
             'Operating System :: OS Independent',
             'Programming Language :: Python :: 3',
             'Programming Language :: Python :: 3.5',
             'Programming Language :: Python :: Implementation :: CPython',
-            #'Topic :: Games/Entertainment',
+            'Topic :: Games/Entertainment',
         ],
         zip_safe=True,
     )

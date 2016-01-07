@@ -31,10 +31,6 @@ See `cbeams -h`.
 
 Immediate Future Plans
 ----------------------
-* Accept command-line arg to overwrite current visible terminal content.
-* If a key is pressed (other than ctrl-c) then:
-    stop producing new fireworks,
-    run until all current fireworks have completed
 * Upload to PyPI
     Using setup.cfg instead of setup.py?
 * Create a wheel
