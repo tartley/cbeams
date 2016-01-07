@@ -44,16 +44,21 @@ develop:
 
 # push to PyPI
 
-sdist: clean
+sdist:
 	python setup.py sdist --formats=zip,gztar
 .PHONY: sdist
 
-register: clean
-	python setup.py sdist --formats=zip,gztar register
+# Pure Python wheel (since source does not support Python2)
+wheel:
+	python setup.py bdist_wheel
+.PHONY: wheel
+
+register:
+	python setup.py register
 .PHONY: register
 
-upload: clean
-	python setup.py sdist --formats=zip,gztar register upload
+upload: sdist wheel
+	twine upload dist/*
 .PHONY: upload
 
 
