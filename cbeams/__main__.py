@@ -6,8 +6,8 @@ def main():
     '''
     Application console script entry point.
     '''
-    cmdline.parse(sys.argv[1:])
-    with terminal.reset_on_exit():
+    opts = cmdline.parse(sys.argv[1:])
+    with terminal.reset_on_exit(opts['--overwrite']):
         animate.animate()
 
 
