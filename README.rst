@@ -13,7 +13,7 @@ Might work on OSX.
 Will not work on Windows. The 'cmd' terminal does not accept ANSI terminal
 codes. Could probably be made to work using 'colorama', or ansi.sys.
 
-Requires Python 3.5. Probably also runs on other 3.x, but I haven't tried it.
+Requires Python 3.4. Probably also runs on other 3.x, but I haven't tried it.
 
 Python dependencies are specified in setup.py.
 
