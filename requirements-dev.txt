@@ -1,7 +1,7 @@
 # App dependencies:
 -r requirements.txt
 
-# Development tools, unpinned:
+# Development tools:
 PyInstaller==3.0
 pytest==2.8.1
 twine==1.6.5

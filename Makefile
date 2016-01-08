@@ -32,7 +32,7 @@ tags:
 .PHONY: tags
 
 clean:
-	rm -rf build dist MANIFEST tags *.egg-info
+	rm -rf build dist MANIFEST tags *.egg-info *.spec
 	find . -name '*.py[oc]' -exec rm {} \;
 .PHONY: clean
 
@@ -62,11 +62,16 @@ upload: sdist wheel
 .PHONY: upload
 
 
-# build a distributable
+# build a redistributable binary
+# TODO: Put this in a script.
+# TODO: Hardcoded program name, program version, 32/64 bit ness
+# TODO: try '${BASH_SOURCE%/*}'
 
-build:
-	pyinstaller --name=cbeams cbeams/__main__.py
-
+exe-linux: clean
+	pyinstaller main.py
+	/bin/echo -e '#!/bin/bash\n$$(dirname $${BASH_SOURCE})/main/main\n' >dist/cbeams
+	chmod a+x dist/cbeams
+	(cd dist; tar -czf cbeams-linux-32bit-v1.0.0rc2.tar.gz cbeams main)
 
 # Don't work
 

@@ -17,7 +17,7 @@ Will not work on Windows. The 'cmd' terminal does not accept ANSI terminal
 codes. Could probably be made to work on Windows using 'colorama', or ansi.sys,
 but I don't have a Windows machine, and don't plan on doing that.
 
-Requires Python 3.4. Probably also runs on other 3.x, but I haven't tried it.
+Tested on Python 3.4 & 3.5. Probably also runs on other 3.x, but not on 2.x.
 
 Python dependencies are specified in setup.py.
 
@@ -35,13 +35,17 @@ See `cbeams -h`.
 
 Immediate Future Plans
 ----------------------
-* Backport wheel creation into my python-app template
-* Create a redistributable binary for Linux
+* Create a **32-bit** redistributable binary for Linux
+    * confirm current is 64 bit: Yep (use 'file' on dist/main/main)
+    * Recompile Python as 32bit?
+    * Repackage as rc2
+* Upload as a github release?
 * Backport Linux redistributable binary to my python-app template
 * Switch to python3.5.1
-* Backport python3.5.1 to my python-app template
 * Test on OSX
 * Create a redistributable binary for OSX
+* Backport wheel creation into my python-app template
+* Backport python3.5.1 to my python-app template
 * Backport OSX redistributable binary to my python-app template
 
 Hacking
