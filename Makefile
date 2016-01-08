@@ -71,7 +71,7 @@ exe-linux: clean
 	pyinstaller main.py
 	/bin/echo -e '#!/bin/bash\n$$(dirname $${BASH_SOURCE})/main/main\n' >dist/cbeams
 	chmod a+x dist/cbeams
-	(cd dist; tar -czf cbeams-linux-32bit-v1.0.0rc2.tar.gz cbeams main)
+	(cd dist; tar -czf cbeams-linux-64bit-v1.0.0rc2.tar.gz cbeams main)
 
 # Don't work
 
