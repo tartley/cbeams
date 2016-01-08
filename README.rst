@@ -35,17 +35,14 @@ See `cbeams -h`.
 
 Immediate Future Plans
 ----------------------
-* Create a **32-bit** redistributable binary for Linux
-    * confirm current is 64 bit: Yep (use 'file' on dist/main/main)
-    * Recompile Python as 32bit?
-    * Repackage as rc2
-* Upload as a github release?
-* Backport Linux redistributable binary to my python-app template
-* Switch to python3.5.1
+* README should include a link to the binary release(s?)
+* Can README embed that ascii cinema thing?
+  If not, embed a screenshot and link to it.
 * Test on OSX
 * Create a redistributable binary for OSX
 * Backport wheel creation into my python-app template
 * Backport python3.5.1 to my python-app template
+* Backport Linux redistributable binary to my python-app template
 * Backport OSX redistributable binary to my python-app template
 
 Hacking
