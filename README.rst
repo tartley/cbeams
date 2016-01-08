@@ -61,7 +61,7 @@ Thanks
 ------
 
 To Erik Rose, for the fabulous Blessings package.
-    https://pypi.python.org/pypi/blessings
+https://pypi.python.org/pypi/blessings
 
 Contact
 -------
