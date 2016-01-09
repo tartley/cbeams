@@ -121,7 +121,7 @@ def get_sdist_config():
             'License :: OSI Approved :: BSD License',
             'Natural Language :: English',
             #'Operating System :: Microsoft :: Windows :: Windows 7',
-            'Operating System :: MacOS :: MacOS X',
+            #'Operating System :: MacOS :: MacOS X',
             'Operating System :: POSIX :: Linux',
             'Operating System :: OS Independent',
             'Programming Language :: Python :: 3',
