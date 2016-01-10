@@ -37,6 +37,9 @@ def center():
     return terminal.height // 2, terminal.width // 2
 
 
+def on_background_color():
+    return terminal.on_color(0)
+
 def rand_coord():
     return (
         random.randint(0, terminal.height - 1),
