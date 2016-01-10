@@ -36,20 +36,11 @@ def reset_on_exit(overwrite):
 def center():
     return terminal.height // 2, terminal.width // 2
 
-
-def on_background_color():
-    return terminal.on_color(0)
-
 def rand_coord():
     return (
         random.randint(0, terminal.height - 1),
         random.randint(0, terminal.width - 1)
     )
-
-
-def rand_color():
-    assert terminal.number_of_colors > 0
-    return terminal.on_color(random.randint(1, terminal.number_of_colors - 1))
 
 
 def clip(strips):
@@ -68,10 +59,15 @@ def clip(strips):
         if length > 0:
             yield y, x, length
 
-
 def render(strips):
     return ''.join(
         terminal.move(y, x) + ' ' * length
         for y, x, length in clip(strips)
     )
+
+
+number_of_colors = terminal.number_of_colors
+
+def on_color(color):
+    return terminal.on_color(color)
 

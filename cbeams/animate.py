@@ -10,11 +10,11 @@ class Firework():
     A firework looks like an expanding annulus.
     (i.e. a colored circle with a hole in the middle).
     '''
-    def __init__(self):
+    def __init__(self, color):
+        self.color = color # as an integer
+
         # Center point.
         self.y, self.x = terminal.rand_coord()
-
-        self.color = terminal.rand_color()
 
         # The max radius we will reach.
         self.size = 2 + min(100, random.expovariate(0.2))
@@ -42,34 +42,58 @@ class Firework():
 
     def draw(self):
         # Draw the full coloured annulus from inner to outer radii.
-        sys.stdout.write(self.color)
+        sys.stdout.write(terminal.on_color(self.color))
         sys.stdout.write(terminal.render(
             shape.annulus(self.y, self.x, self.outer, self.inner)
         ))
         # Draw a very thin background colored annulus just inside 'inner',
         # to erase the innermost part of the last frame's annulus.
-        sys.stdout.write(terminal.on_background_color())
+        sys.stdout.write(terminal.on_color(0))
         sys.stdout.write(terminal.render(
             shape.annulus(self.y, self.x, self.inner, self.inner_last)
         ))
 
-def should_add_new_item(elapsed):
-    return random.random() < -math.cos(elapsed / 3) / 2 + 0.6
+class Generator():
+    '''
+    Generates new Fireworks to be added into the world
+    '''
+    def __init__(self):
+        self.colors = [self._rand_color()]
+
+    def _rand_color(self):
+        return random.randint(1, terminal.number_of_colors - 1)
+
+    def get_new_items(self, elapsed):
+        # possibly add or remove an allowable color
+        value = random.random()
+        if value < 0.01 and len(self.colors) < 7:
+            self.colors.append(self._rand_color())
+        elif value < 0.02 and len(self.colors) > 1:
+            self.colors.pop(0)
+
+        # possibly generate a new Firework
+        if random.random() < -math.cos(elapsed / 3) / 2 + 0.6:
+            return [Firework(color=random.choice(self.colors))]
+        else:
+            return []
+
+def limit_framerate(start_frame):
+    time.sleep(max(0, 1/60 + start_frame - time.time()))
 
 def animate():
     world = set()
+    generator = Generator()
     start_time = time.time()
     while True:
         start_frame = time.time()
         elapsed = start_frame - start_time
-        if should_add_new_item(elapsed):
-            world.add(Firework())
+        for item in generator.get_new_items(elapsed):
+            world.add(item)
         for item in world:
             item.update()
         for item in [item for item in world if item.deleteme]:
             world.remove(item)
         for item in world:
             item.draw()
-        sys.stdout.flush()
-        time.sleep(max(0, 1/60 + start_frame - time.time()))
+        limit_framerate(start_frame)
 
