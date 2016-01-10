@@ -43,7 +43,7 @@ class Firework():
         sys.stdout.write(terminal.render(
             shape.annulus(self.y, self.x, self.outer, self.inner)
         ))
-        sys.stdout.write(terminal.terminal.on_black)
+        sys.stdout.write(terminal.terminal.on_color(0))
         sys.stdout.write(terminal.render(
             shape.annulus(self.y, self.x, self.inner, self.inner_last)
         ))
