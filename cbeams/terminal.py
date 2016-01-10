@@ -11,7 +11,7 @@ def noop():
     yield
 
 def on_entry(overwrite):
-    sys.stdout.write(terminal.civis)
+    sys.stdout.write(terminal.civis + terminal.normal)
     if not overwrite:
         sys.stdout.write(terminal.clear)
 
