@@ -1,5 +1,4 @@
 import contextlib
-import functools
 import sys
 import random
 
@@ -52,10 +51,11 @@ def rand_color():
 
 def clip(strips):
     '''
-    Yield a sequence of strips after clipping them to (0, 0) to (height, width).
+    Yield a sequence of strips after clipping them to (0, 0), (height, width).
+    (inclusive)
     '''
     for y, x, length in strips:
-        if not(0 <= y < terminal.height):
+        if y < 0 or y >= terminal.height:
             continue
         if x < 0:
             length += x

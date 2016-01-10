@@ -6,7 +6,8 @@ from ..cmdline import parse
 
 
 def test_no_args():
-    assert parse([]) == {'--help': False, '--version': False}
+    assert parse([]) == \
+        {'--help': False, '--version': False, '--overwrite': False}
 
 def test_unrecognized():
     with pytest.raises(SystemExit):

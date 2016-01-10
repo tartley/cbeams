@@ -1,9 +1,6 @@
-import math
 import random
 import sys
 import time
-
-from blessings import Terminal
 
 from . import shape, terminal
 
@@ -19,9 +16,9 @@ class Firework():
         self.color = terminal.rand_color()
 
         # The max radius we will reach
-        self.max = 2 + min(100, random.expovariate(0.2))
+        self.size = 2 + min(100, random.expovariate(0.2))
 
-        # How close 'outer' gets to max before inner hole appears
+        # How close 'outer' gets to size before inner hole appears
         self.thickness = random.triangular(0.2, 0.95)
 
         # Outer and inner radius
@@ -31,11 +28,11 @@ class Firework():
         self.inner_last = self.inner
 
     def update(self):
-        if self.outer < self.max * 0.95:
-            self.outer += (self.max - self.outer) * 0.08
-        if self.outer > self.max * self.thickness:
+        if self.outer < self.size * 0.95:
+            self.outer += (self.size - self.outer) * 0.08
+        if self.outer > self.size * self.thickness:
             self.inner_last = self.inner
-            self.inner += (self.max - self.inner) * 0.08
+            self.inner += (self.size - self.inner) * 0.08
 
     @property
     def deleteme(self):
