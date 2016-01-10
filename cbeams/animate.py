@@ -1,3 +1,4 @@
+import math
 import random
 import sys
 import time
@@ -52,15 +53,20 @@ class Firework():
             shape.annulus(self.y, self.x, self.inner, self.inner_last)
         ))
 
+def get_new_items(elapsed):
+    if random.random() < 0.7:
+        return [Firework()]
+    else:
+        return []
+
 def animate():
     world = set()
-    start = time.time()
-    last = 0
+    start_time = time.time()
     while True:
-        elapsed = time.time() - start
-        if elapsed - last > 0.02:
-            world.add(Firework())
-            last = elapsed
+        start_frame = time.time()
+        elapsed = start_frame - start_time
+        for item in get_new_items(elapsed):
+            world.add(item)
         for item in world:
             item.update()
         for item in [item for item in world if item.deleteme]:
@@ -68,5 +74,5 @@ def animate():
         for item in world:
             item.draw()
         sys.stdout.flush()
-        time.sleep(0.01)
+        time.sleep(max(0, 1/60 + start_frame - time.time()))
 
