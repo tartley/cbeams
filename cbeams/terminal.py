@@ -8,29 +8,30 @@ from blessings import Terminal
 terminal = Terminal()
 
 @contextlib.contextmanager
-def restore_posn_to_bottom_on_exit():
-    try:
-        yield
-    except KeyboardInterrupt:
-        pass
-    sys.stdout.write(terminal.move(terminal.height - 1, 0))
+def noop():
+    yield
+
+def on_entry(overwrite):
+    sys.stdout.write(terminal.civis)
+    if not overwrite:
+        sys.stdout.write(terminal.clear)
+
+def on_exit(overwrite):
+    if overwrite:
+        # move cursor to bottom of terminal
+        sys.stdout.write(terminal.move(terminal.height - 1, 0))
+    sys.stdout.write(terminal.cnorm + terminal.normal)
 
 @contextlib.contextmanager
 def reset_on_exit(overwrite):
-    if overwrite:
-        fullscreen = restore_posn_to_bottom_on_exit
-        init_terminal = terminal.civis + terminal.normal
-    else:
-        fullscreen = terminal.fullscreen
-        init_terminal = terminal.civis + terminal.normal + terminal.clear
-
     try:
-        with fullscreen():
-            sys.stdout.write(init_terminal)
+        with (noop if overwrite else terminal.fullscreen)():
+            on_entry(overwrite)
             yield
     except KeyboardInterrupt:
         pass
-    sys.stdout.write(terminal.cnorm + terminal.normal)
+    finally:
+        on_exit(overwrite)
 
 
 def center():
