@@ -46,13 +46,15 @@ Immediate Future Plans
 ----------------------
 * Can README embed that ascii cinema thing?
   If not, embed a screenshot and link to it.
+* 'make ve': Can it use a login shell?
+* Create a 32-bit Linux redistributable
 * Test on OSX
 * Create a redistributable binary for OSX
-* Consider a 32 bit VM or chroot to build 32 binary redistributables.
-* Backport wheel creation into my python-app template
-* Backport python3.5.1 to my python-app template
-* Backport Linux redistributable binary to my python-app template
-* Backport OSX redistributable binary to my python-app template
+* Backport into my python-app template:
+    * wheel creation
+    * python3.5.1
+    * Linux binary redistributable
+    * OSX binary redistributable
 
 Hacking
 -------
