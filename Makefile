@@ -7,15 +7,10 @@
 
 ve:
 	# Make can't execute this 'cos we don't use an interactive shell:
-	# mkvirtualenv -p $(which python3.5) -a . -r requirements-dev.txt cbeams
-
-download-deps:
-	pip install -r requirements-dev.txt --download=deps
-	rm deps/cbeams-*
+	# mkvirtualenv -p $$(which python3.5) -a . -r requirements-dev.txt cbeams
 
 popve:
-	pip install -r requirements-dev.txt --no-index --find-links=deps
-
+	pip install -r requirements-dev.txt
 
 # development
 
