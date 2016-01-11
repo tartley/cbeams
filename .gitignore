@@ -3,5 +3,6 @@
 .cache
 build
 dist
+main.spec
 tags
 

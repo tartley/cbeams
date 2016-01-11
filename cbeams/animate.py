@@ -66,7 +66,7 @@ class Generator():
     def get_new_items(self, elapsed):
         # possibly add or remove an allowable color
         value = random.random()
-        if value < 0.01 and len(self.colors) < 7:
+        if value < 0.01 and len(self.colors) < 4:
             self.colors.append(self._rand_color())
         elif value < 0.02 and len(self.colors) > 1:
             self.colors.pop(0)
