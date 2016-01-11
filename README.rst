@@ -44,14 +44,12 @@ Immediate Future Plans
 ----------------------
 * Screenshot in the README
 * release v1.1.0
+* Fix the hardcoded values in the Makefile
 * Create a 32-bit Linux redistributable
-* release v1.2.0
 * Test on OSX
 * Create a redistributable binary for OSX
-* release v1.3.0
 * Try colorama, just in case it works
 * If so, create redistributable binary for Windows
-* Release v1.4.0
 * Backport into my python-app template:
     * wheel creation
     * python3.5.1
