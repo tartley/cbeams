@@ -95,5 +95,6 @@ def animate():
             world.remove(item)
         for item in world:
             item.draw()
+        sys.stdout.flush()
         limit_framerate(start_frame)
 
