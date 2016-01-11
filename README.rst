@@ -4,34 +4,32 @@ cbeams
 A command-line program which draws pretty animated colored circles in the
 terminal.
 
-Binary installs
----------------
+Developed on on Ubuntu 14.04, likely runs on other Linux.
 
-If you're on 64-bit Linux, you can run cbeams by downloading a binary that
-should just work:
+Might run on OSX. Does not run on Windows.
+
+Downloading as a binary executable
+----------------------------------
+
+If you're on 64-bit Linux, you can download a binary executable that should
+just work:
 
     https://github.com/tartley/cbeams/releases
 
 Open a terminal, tar -xzf the release, and run the script 'cbeams'.
 
-On 32-bit Linux, or on OSX, read on.
+Downloading as source
+---------------------
 
 Dependencies
-------------
-
-Developed on on Ubuntu 14.04, likely runs on other Linux.
-
-Might work on OSX.
-
-Doesn't work on Windows, which doesn't interpret ANSI sequences in its
-terminal. This could probably be made to work using 'colorama', or ansi.sys.
+............
 
 Tested on Python 3.4 & 3.5. Probably also runs on other 3.x, but not on 2.x.
 
 Python dependencies are specified in setup.py.
 
-Install
--------
+Installing
+..........
 
 ::
 
@@ -47,9 +45,12 @@ Immediate Future Plans
 * Can README embed that ascii cinema thing?
   If not, embed a screenshot and link to it.
 * 'make ve': Can it use a login shell?
+* release v1.1.0
 * Create a 32-bit Linux redistributable
+* release v1.2.0
 * Test on OSX
 * Create a redistributable binary for OSX
+* release v1.3.0
 * Backport into my python-app template:
     * wheel creation
     * python3.5.1
@@ -74,13 +75,13 @@ Thanks
 To Erik Rose, for the fabulous Blessings package.
 https://pypi.python.org/pypi/blessings
 
-Contact
--------
+Links & Contact
+---------------
 
-:For users: Downloads & documentation:
+:Python package:
     http://pypi.python.org/pypi/cbeams/
 
-:For developers: Souce code & issues:
+:Binaries, source, issues:
     https://github.com/tartley/cbeams/
 
 :Author:
