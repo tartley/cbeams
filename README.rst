@@ -43,13 +43,27 @@ See `cbeams -h`.
 Immediate Future Plans
 ----------------------
 * Screenshot in the README
+* Try PyInstaller 3.1
 * release v1.1.0
 * Fix the hardcoded values in the Makefile
+    For name, can we just assume the project templating will do it?
+    For version, we cannot, it must be derived at runtime,
+    so maybe we should do 'name' too, while we are at it?
+        Review that section in PPA docs about places to put version number
+        Use a new script to get them from our existing source?
+        Run our program to get them?
+        Get them from env vars?
 * Create a 32-bit Linux redistributable
+    Create a 32 bit VM.
+        Try Dave's recommended KVM?
 * Test on OSX
 * Create a redistributable binary for OSX
+    64 bit is fine? Is there no longer any such thing as a 32-bit modern OSX?
 * Try colorama, just in case it works
-* If so, create redistributable binary for Windows
+* If so, create 32 bit redistributable binary for Windows
+    Beware PyInstaller 3.1 bug:
+        Apps built with Windows 10 and Python 3.5 may not run on earlier
+        Windows versions
 * Backport into my python-app template:
     * wheel creation
     * python3.5.1

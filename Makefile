@@ -1,7 +1,7 @@
 # This Makefile is just a cheatsheet to remind me of some commonly used
-# commands. I'm generally executing these on OSX with up-to-date gnu binaries
-# on the PATH, or on Ubuntu, or on WindowsXP/7 with Cygwin binaries foremost on
-# the PATH.
+# commands. I'm generally executing these on Ubuntu, but have in the past
+# used them on OSX with up-to-date gnu binaries, or WindowsXP/7 with Cygwin
+# binaries foremost on the PATH.
 
 # virtualenv
 
@@ -11,6 +11,7 @@ ve:
 
 popve:
 	pip install -r requirements-dev.txt
+
 
 # development
 
