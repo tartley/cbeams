@@ -60,14 +60,14 @@ upload: clean sdist wheel
 
 # build a redistributable binary
 # TODO: Put this in a script.
-# TODO: Hardcoded program name, program version, 32/64 bit ness
-# TODO: try '${BASH_SOURCE%/*}'
+# TODO: Hardcoded program version
 
 exe-linux: clean
+	sudo apt-get -y install build-essential python3-dev
 	pyinstaller main.py
-	/bin/echo -e '#!/bin/bash\n$$(dirname $${BASH_SOURCE})/main/main\n' >dist/cbeams
+	(cd dist; ln -s main/main cbeams)
 	chmod a+x dist/cbeams
-	(cd dist; tar -czf cbeams-linux-64bit-v1.0.0rc3.tar.gz cbeams main)
+	(cd dist; tar -czf cbeams-linux-$(shell python -c "import sys; print(32 if sys.maxsize == 0x7fffffff else 64)")bit-v1.0.0rc3.tar.gz cbeams main)
 
 # Don't work
 
