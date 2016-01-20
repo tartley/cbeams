@@ -65,9 +65,9 @@ def render(strips):
         for y, x, length in clip(strips)
     )
 
+on_color = terminal.on_color
 
 number_of_colors = terminal.number_of_colors
 
-def on_color(color):
-    return terminal.on_color(color)
+normal = terminal.normal
 

@@ -48,7 +48,7 @@ class Firework():
         ))
         # Draw a very thin background colored annulus just inside 'inner',
         # to erase the innermost part of the last frame's annulus.
-        sys.stdout.write(terminal.on_color(0))
+        sys.stdout.write(terminal.normal)
         sys.stdout.write(terminal.render(
             shape.annulus(self.y, self.x, self.inner, self.inner_last)
         ))

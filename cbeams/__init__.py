@@ -17,7 +17,7 @@ Options:
 For details, see the README file.
 '''
 
-__version__ = '1.0.0rc3'
+__version__ = '1.0.1rc1'
 
 __doc__ = __doc__.format(version=__version__)
 
