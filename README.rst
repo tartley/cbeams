@@ -49,10 +49,10 @@ TODO
 * Fix make exe-linux hardcoded values:
     For name, we can assume the project templating will do it
     For version, we cannot, it must be derived at runtime,
-        Review that section in PPA docs about places to put version number
-        Use a new script to get them from our existing source?
-        Run our program to get them?
-        Get them from env vars?
+    Review that section in PPA docs about places to put version number
+    Use a new script to get them from our existing source?
+    Run our program to get them?
+    Get them from env vars?
 * Screenshot in the README
 * Try PyInstaller 3.1
 * Create a final release:
