@@ -41,7 +41,7 @@ Installing
 Usage
 -----
 
-See `cbeams -h`.
+Just run `cbeams`. For options, see `cbeams -h`.
 
 TODO
 ----
