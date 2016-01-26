@@ -1,6 +1,10 @@
 cbeams
 ======
 
+I've seen things you people wouldn't believe. Attack ships on fire off the
+shoulder of Orion. I watched c-beams glitter in the dark, near the Tannhäuser
+Gate. All those moments will be lost, in time, like tears in rain. Time to die.
+
 A command-line program which draws pretty animated colored circles in the
 terminal.
 
@@ -24,6 +28,8 @@ Downloading as source
 Dependencies
 ............
 
+Works on Linux or OSX, but not on Windows.
+
 Tested on Python 3.4 & 3.5. Probably also runs on other 3.x, but not on 2.x.
 
 Python dependencies are specified in setup.py.
@@ -40,11 +46,11 @@ Usage
 
 See `cbeams -h`.
 
-Immediate Future Plans
-----------------------
+TODO
+----
 * put make exe-linux into a script?
 * Fix make exe-linux hardcoded values:
-    For name, can we just assume the project templating will do it?
+    For name, we can assume the project templating will do it
     For version, we cannot, it must be derived at runtime,
         Review that section in PPA docs about places to put version number
         Use a new script to get them from our existing source?
@@ -52,10 +58,10 @@ Immediate Future Plans
         Get them from env vars?
 * Screenshot in the README
 * Try PyInstaller 3.1
-* release v1.0.0 (i.e. final)
+* Create a final release:
+    set version number
     tag
     create 32 bit linux release
-* Test on OSX
 * Create a redistributable binary for OSX
     64 bit is fine? Is there no longer any such thing as a 32-bit modern OSX?
 * Try colorama, just in case it works
