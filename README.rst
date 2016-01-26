@@ -61,7 +61,6 @@ TODO
 * Create a final release:
     set version number
     tag
-    create 32 bit linux release
 * Create a redistributable binary for OSX
     64 bit is fine? Is there no longer any such thing as a 32-bit modern OSX?
 * Try colorama, just in case it works
