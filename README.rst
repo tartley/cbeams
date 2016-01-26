@@ -8,10 +8,6 @@ Gate. All those moments will be lost, in time, like tears in rain. Time to die.
 A command-line program which draws pretty animated colored circles in the
 terminal.
 
-Developed on on Ubuntu 14.04, likely runs on other Linux.
-
-Might run on OSX. Does not run on Windows.
-
 Downloading as a binary executable
 ----------------------------------
 
@@ -28,7 +24,8 @@ Downloading as source
 Dependencies
 ............
 
-Works on Linux or OSX, but not on Windows.
+Developed on on Ubuntu 14.04, likely runs on other Linux. Runs on OSX. Does not
+run on Windows.
 
 Tested on Python 3.4 & 3.5. Probably also runs on other 3.x, but not on 2.x.
 
