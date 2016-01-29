@@ -67,7 +67,7 @@ exe-linux: clean
 	pyinstaller main.py
 	(cd dist; ln -s main/main cbeams)
 	chmod a+x dist/cbeams
-	(cd dist; tar -czf cbeams-linux-$(shell python -c "import sys; print(32 if sys.maxsize == 0x7fffffff else 64)")bit-v1.0.0rc3.tar.gz cbeams main)
+	(cd dist; tar -czf cbeams-linux-$(shell python -c "import sys; print(32 if sys.maxsize == 0x7fffffff else 64)")bit-v1.0.1.tar.gz cbeams main)
 
 # Don't work
 
