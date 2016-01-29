@@ -11,12 +11,12 @@ terminal.
 Downloading as a binary executable
 ----------------------------------
 
-If you're on 64-bit Linux, you can download a binary executable that should
-just work:
+A 32-bit Linux binary executable can be downloaded from:
 
     https://github.com/tartley/cbeams/releases
 
-Open a terminal, tar -xzf the release, and run the script 'cbeams'.
+You don't need any version of Python installed, just download, open a terminal,
+tar -xzf the release, and run the script 'cbeams'.
 
 Downloading as source
 ---------------------
