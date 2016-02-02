@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import codecs
 from glob import glob
 import os
 from os.path import join
@@ -17,19 +18,17 @@ from setuptools import setup, find_packages
 NAME = 'cbeams'
 
 
+def read_file(filename):
+    with codecs.open(filename, 'r', 'utf-8') as fp:
+        return fp.read()
+
 def read_description(filename):
     '''
     Read given textfile and return (2nd_para, 3rd_para to end)
     '''
-    with open(filename) as fp:
-        text = fp.read()
+    text = read_file(filename)
     paras = text.split('\n\n')
     return paras[1], '\n\n'.join(paras[2:])
-
-
-def read_file(filename):
-    with open(filename, "rt") as filehandle:
-        return filehandle.read()
 
 def find_value(source, identifier):
     '''
