@@ -1,8 +1,9 @@
-*.py[oc]
-*.egg-info
-.cache
-build
-dist
-main.spec
-tags
+__pycache__/
+/*.egg-info/
+/.cache/
+/build/
+/dist/
+/main.spec
+/releases/
+/tags
 

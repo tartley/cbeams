@@ -45,19 +45,19 @@ Just run `cbeams`. For options, see `cbeams -h`.
 
 TODO
 ----
+* Try PyInstaller 3.1
+* Screenshot in the README
 * put make exe-linux into a script?
 * Fix make exe-linux hardcoded values:
     For name, we can assume the project templating will do it
     For version, we cannot, it must be derived at runtime,
-    Review that section in PPA docs about places to put version number
-    Use a new script to get them from our existing source?
-    Run our program to get them?
-    Get them from env vars?
-* Screenshot in the README
-* Try PyInstaller 3.1
-* Create a final release:
-    set version number
-    tag
+    Review that section in PPA docs about single places to put version number
+        Use a new script to get them from our existing source?
+        Run our program to get them?
+        Get them from env vars?
+* Should my Linux binary builds use an old version of ubuntu? (i.e 14.04?)
+* create a 32 bit linux binary for 1.0.1
+* test the binary on a fresh ubuntu install
 * Create a redistributable binary for OSX
     64 bit is fine? Is there no longer any such thing as a 32-bit modern OSX?
 * Try colorama, just in case it works
