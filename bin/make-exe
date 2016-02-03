@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+# Make binary executable on Linux or OSX.
+
+# Prerequisites for running PyInstaller
+sudo apt-get -yqq install build-essential python3-dev
+
+# Run pyinstaller to create our executable in 'dist'
+# The redirection, tee and grep is just to make it quiet
+pyinstaller main.py 2>&1 | tee pyinstaller.out | grep -v INFO
+
+# Create a symlink so it's obvious to users what they need to run
+(cd dist; ln -s main/main cbeams)
+chmod a+x dist/cbeams
+
+# 32 or 64 bit Python bundled in the executable
+bits="$(python -c 'import sys; print(32 if sys.maxsize == 0x7fffffff else 64)')"
+# Version number of our app
+version="$(python -c 'import setup; print(setup.get_version())')"
+# linux or osx
+unamestr="$(uname)"
+case "$unamestr" in
+    Linux*)  system="linux";;
+    Darwin*) system="osx";;
+    *)       system="$unamestr";;
+esac
+
+# Create the output archive file
+filename="cbeams-${system}-${bits}bit-v${version}.tar.gz"
+echo "${filename}"
+(cd dist; tar -czf ${filename} cbeams main)
+

@@ -14,9 +14,7 @@ from setuptools import setup, find_packages
 # setup.py should not import from our local source (pip needs to be able to
 # import setup.py before our dependencies have been installed)
 
-
 NAME = 'cbeams'
-
 
 def read_file(filename):
     with codecs.open(filename, 'r', 'utf-8') as fp:
@@ -46,6 +44,8 @@ def find_value(source, identifier):
         )
     return match.group(1)
 
+def get_version():
+    return find_value(read_file(join(NAME, '__init__.py')), '__version__')
 
 def get_package_data(topdir, excluded=set()):
     retval = []
@@ -56,7 +56,6 @@ def get_package_data(topdir, excluded=set()):
         retval.append(join(dirname[len(NAME) + 1:], '*.*'))
     return retval
 
-
 def get_data_files(dest, source):
     retval = []
     for dirname, subdirs, files in os.walk(source):
@@ -65,13 +64,11 @@ def get_data_files(dest, source):
         )
     return retval
 
-
 def get_sdist_config():
     description, long_description = read_description('README.rst')
-
     return dict(
         name=NAME,
-        version=find_value(read_file(join(NAME, '__init__.py')), '__version__'),
+        version=get_version(),
         description=description,
         long_description=long_description,
         url='http://pypi.python.org/pypi/%s/' % (NAME,),

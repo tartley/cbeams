@@ -62,12 +62,8 @@ upload: clean sdist wheel
 # TODO: Put this in a script.
 # TODO: Hardcoded program version
 
-exe-linux: clean
-	sudo apt-get -y install build-essential python3-dev
-	pyinstaller main.py
-	(cd dist; ln -s main/main cbeams)
-	chmod a+x dist/cbeams
-	(cd dist; tar -czf cbeams-linux-$(shell python -c "import sys; print(32 if sys.maxsize == 0x7fffffff else 64)")bit-v1.0.1.tar.gz cbeams main)
+exe: clean
+	bin/make-exe
 
 # Don't work
 
