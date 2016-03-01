@@ -5,55 +5,58 @@
 
 # virtualenv
 
-ve:
-	# Make can't execute this 'cos we don't use an interactive shell:
-	# mkvirtualenv -p $$(which python3.5) -a . -r requirements-dev.txt cbeams
+ve: ## Echo a command which can be used to create and populate a virtualenv
+	@# Make can't execute this 'cos the shell it executes commands in
+	@# isn't interactive, so doesn't have 'mkvirtualenv' available.
+	@echo "You should execute this:"
+	@echo 'mkvirtualenv -p $$(which python3.5) -a . -r requirements-dev.txt cbeams'
 
-popve:
+popve: ## Populate the active virtualenv
 	pip install -r requirements-dev.txt
 
 
 # development
 
-test:
+test: ## Run tests
 	py.test -q
 .PHONY: test
 
-pylint:
+pylint: ## Run pylint
 	pylint *.py
 .PHONY: pylint
 
-tags:
+tags: ## Create tags
 	ctags -R --languages=python .
 .PHONY: tags
 
-clean:
+clean: ## Delete all temporary files, like *.pyc or __pycache__
 	rm -rf build dist MANIFEST tags *.egg-info *.spec
-	find . -name '*.py[oc]' -exec rm {} \;
+	find . -name __pycache__ -type d | xargs rm -rf
 .PHONY: clean
 
-develop:
-	# create executable entry points in our python or virtualenv's bin dir
+develop: ## Install this package in develop mode, so we can edit it
+	@# i.e creates executable entry points in our python or virtualenv's bin dir
+	@# Alternative implementation would be "python setup.py develop"
 	pip install -e .
 .PHONY: develop
 
 
 # push to PyPI
 
-sdist:
+sdist: ## Upload an sdist to PyPI
 	python setup.py sdist --formats=gztar
 .PHONY: sdist
 
 # Pure Python wheel (since source does not support Python2)
-wheel:
+wheel: ## Upload a wheel to PyPI
 	python setup.py bdist_wheel
 .PHONY: wheel
 
-register:
+register: ## Update package metadata & docs on PyPI
 	python setup.py register
 .PHONY: register
 
-upload: clean sdist wheel
+upload: clean sdist wheel ## Not sure what this does, TBH
 	twine upload dist/*
 .PHONY: upload
 
@@ -62,7 +65,7 @@ upload: clean sdist wheel
 # TODO: Put this in a script.
 # TODO: Hardcoded program version
 
-exe: clean
+exe: clean ## Build a redistributable binary for the current platform
 	bin/make-exe
 
 # Don't work
@@ -78,3 +81,12 @@ exe: clean
 # 	rm -rf dist/cbeams-${RELEASE}.* build
 # 	python setup.py --quiet py2exe
 # .PHONY: py2exe
+
+
+help:
+	@# Optionally add 'sort' before 'awk'
+	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-10s\033[0m %s\n", $$1, $$2}'
+.PHONY: help
+
+.DEFAULT_GOAL := help
+
