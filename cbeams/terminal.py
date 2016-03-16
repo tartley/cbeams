@@ -42,6 +42,8 @@ def rand_coord():
         random.randint(0, terminal.width - 1)
     )
 
+def get_max_dimension():
+    return max(terminal.height, terminal.width)
 
 def clip(strips):
     '''

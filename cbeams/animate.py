@@ -17,11 +17,12 @@ class Firework():
         self.y, self.x = terminal.rand_coord()
 
         # The max radius we will reach.
-        self.size = 2 + min(100, random.expovariate(0.2))
+        term_size = terminal.get_max_dimension()
+        self.size = 2 + min(term_size * 2, random.expovariate(32 / term_size))
 
         # How close 'outer' gets to its max size before 'inner' starts to grow.
         # From 0 to 1
-        self.thickness = random.triangular(0.2, 0.95)
+        self.thickness = random.triangular(0.3, 0.95)
 
         # Outer and inner radii.
         self.outer = 0.0
