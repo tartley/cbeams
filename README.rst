@@ -49,9 +49,41 @@ Installing
 Usage
 -----
 
-Just run `cbeams`. For options, see `cbeams -h`.
+::
 
+    cbeams [-o]
+    cbeams [-h]
 
+    -o  Overwrites one screenful of the existing terminal contents
+    -h  Displays help.
+
+Why did I develop this?
+-----------------------
+
+The traditional way to do colors or animation in a terminal is to use the
+venerable UNIX library 'curses', or its open source clone 'ncurses'. There are
+many Python packages that expose ncurses for various uses. Anyone who has used
+these knows that curses is a definite contender for one of the worst APIs in
+existence. It systematically exposes callers to reams of the incidental
+complexity of the underlying implementation, accumulated by supporting decades
+of generations of different terminals and terminal emulators.
+
+Fortunately, nowadays there is a better way. Erik Rose's 'Blessings' package
+layers a sane API on top of ncurses. The documentation page shows how 21 lines
+of incomprehensible code using curses is transformed into four straightforward
+lines of code using blessings.
+
+I wanted an excuse to learn how blessings works, and cbeams is the result.
+I tag it onto the end of long-running commands to use as a visual notification
+that the command has finished.
+
+Pressing ctrl-C exits cbeams, flipping back to the regular terminal buffer, so
+the animation doesn't overwrite any of your previous output.
+
+For fun, there's also a '-o' arg, which overwrites the terminal text without
+flipping buffers. So you can see the expanding circles slowly eat away at your
+existing terminal text, but then when you ctrl-c, it's not possible to restore
+the terminal. So one screenful of your terminal text is overwritten and lost. 
 
 Hacking
 -------
