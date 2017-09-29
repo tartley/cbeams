@@ -4,6 +4,8 @@ cbeams
 A command-line program which draws pretty animated colored circles in the
 terminal.
 
+.. image:: screenshots/cbeams.png
+
     *I've seen things you people wouldn't believe. Attack ships on fire off the
     shoulder of Orion. I watched c-beams glitter in the dark, near the
     Tannhäuser Gate. All those moments will be lost, in time, like tears in
@@ -46,6 +48,26 @@ Usage
 
 Just run `cbeams`. For options, see `cbeams -h`.
 
+Hacking
+-------
+
+To populate a virtualenv, run tests, etc, see the commands in the Makefile.
+These can often work in Windows too, under Bash shells like Cygwin, Msys.
+
+Populating the virtualenv in the manner shown in the Makefile will also
+add "-e ." to the virtualenv, which adds this project in 'develop mode',
+meaning both that source edits are immediately visible within the virtualenv,
+and that the application entry points listed in setup.py are converted into
+executable scripts on the PATH.
+
+Thanks
+------
+
+To Erik Rose, for the fabulous Blessings package.
+https://pypi.python.org/pypi/blessings
+
+
+
 TODO
 ----
 * Screenshot in the README
@@ -65,24 +87,6 @@ TODO
     * Windows binary redistributable
     * setup.py unicode reading of README, etc.
     * bin/make-exe
-
-Hacking
--------
-
-To populate a virtualenv, run tests, etc, see the commands in the Makefile.
-These can often work in Windows too, under Bash shells like Cygwin, Msys.
-
-Populating the virtualenv in the manner shown in the Makefile will also
-add "-e ." to the virtualenv, which adds this project in 'develop mode',
-meaning both that source edits are immediately visible within the virtualenv,
-and that the application entry points listed in setup.py are converted into
-executable scripts on the PATH.
-
-Thanks
-------
-
-To Erik Rose, for the fabulous Blessings package.
-https://pypi.python.org/pypi/blessings
 
 Links & Contact
 ---------------
