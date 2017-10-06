@@ -9,7 +9,8 @@ terminal.
     Tannhäuser Gate. All those moments will be lost, in time, like tears in
     rain. Time to die.*
 
-[![asciicast](screenshots/cbeams.png)](https://asciinema.org/a/141032)
+.. image:: screenshots/cbeams.png
+    :target: https://asciinema.org/a/141032
 
 Click the screenshot for an asciicast showing it in motion (Thanks asciinema!)
 It looks even better running in a large terminal locally. You should download
