@@ -9,10 +9,11 @@ terminal.
     Tannhäuser Gate. All those moments will be lost, in time, like tears in
     rain. Time to die.*
 
-.. image:: screenshots/cbeams.png
+[![asciicast](screenshots/cbeams.png)](https://asciinema.org/a/141032)
 
-It looks better animated than a static screenshot conveys. You should
-download and run it!
+Click the screenshot for an asciicast showing it in motion (Thanks asciinema!)
+It looks even better running in a large terminal locally. You should download
+and run it!
 
 Downloading as a binary executable
 ----------------------------------
