@@ -78,6 +78,22 @@ class Generator():
         else:
             return []
 
+def update(generator, world, elapsed):
+    for item in generator.get_new_items(elapsed):
+        world.add(item)
+    delete = []
+    for item in world:
+        item.update()
+        if item.deleteme:
+            delete.append(item)
+    for item in delete:
+        world.remove(item)
+
+def draw(world):
+    for item in world:
+        item.draw()
+    sys.stdout.flush()
+
 def limit_framerate(start_frame):
     time.sleep(max(0, 1/60 + start_frame - time.time()))
 
@@ -87,15 +103,7 @@ def animate():
     start_time = time.time()
     while True:
         start_frame = time.time()
-        elapsed = start_frame - start_time
-        for item in generator.get_new_items(elapsed):
-            world.add(item)
-        for item in world:
-            item.update()
-        for item in [item for item in world if item.deleteme]:
-            world.remove(item)
-        for item in world:
-            item.draw()
-        sys.stdout.flush()
+        update(generator, world, start_frame - start_time)
+        draw(world)
         limit_framerate(start_frame)
 
