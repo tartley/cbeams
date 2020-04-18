@@ -43,14 +43,9 @@ develop: ## Install this package in develop mode, so we can edit it
 
 # push to PyPI
 
-sdist: ## Upload an sdist to PyPI
-	python setup.py sdist --formats=gztar
+dist: ## Create an sdist and a wheel
+	python setup.py sdist --formats=gztar bdist_wheel
 .PHONY: sdist
-
-# Pure Python wheel (since source does not support Python2)
-wheel: ## Upload a wheel to PyPI
-	python setup.py bdist_wheel
-.PHONY: wheel
 
 register: ## Update package metadata & docs on PyPI
 	python setup.py register
@@ -59,6 +54,8 @@ register: ## Update package metadata & docs on PyPI
 upload: clean sdist wheel ## Not sure what this does, TBH
 	twine upload dist/*
 .PHONY: upload
+
+# Hence normal releases will go: make dist upload
 
 
 # build a redistributable binary
