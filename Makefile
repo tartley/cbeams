@@ -21,9 +21,9 @@ test: ## Run tests
 	py.test -q
 .PHONY: test
 
-pylint: ## Run pylint
+lint: ## Run lint tools
 	pylint *.py
-.PHONY: pylint
+.PHONY: lint
 
 tags: ## Create tags
 	ctags -R --languages=python .

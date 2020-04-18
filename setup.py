@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import codecs
+import collections
 from glob import glob
 import os
 from os.path import join
@@ -36,7 +37,7 @@ def find_value(source, identifier):
     its dependencies will not be present when setuptools runs this setup.py
     before installing our dependencies, to find out what they are.
     '''
-    regex =r"^%s\s*=\s*['\"]([^'\"]*)['\"]$" % (identifier,)
+    regex = r"^%s\s*=\s*['\"]([^'\"]*)['\"]$" % (identifier,)
     match = re.search(regex, source, re.M)
     if not match:
         raise RuntimeError(
@@ -47,18 +48,18 @@ def find_value(source, identifier):
 def get_version():
     return find_value(read_file(join(NAME, '__init__.py')), '__version__')
 
-def get_package_data(topdir, excluded=set()):
+def get_package_data(topdir, excluded=collections.frozenset()):
     retval = []
-    for dirname, subdirs, files in os.walk(join(NAME, topdir)):
-        for x in excluded:
-            if x in subdirs:
-                subdirs.remove(x)
+    for dirname, subdirs, _ in os.walk(join(NAME, topdir)):
+        for subdir in excluded:
+            if subdir in subdirs:
+                subdirs.remove(subdir)
         retval.append(join(dirname[len(NAME) + 1:], '*.*'))
     return retval
 
 def get_data_files(dest, source):
     retval = []
-    for dirname, subdirs, files in os.walk(source):
+    for dirname, _, __ in os.walk(source):
         retval.append(
             (join(dest, dirname[len(source)+1:]), glob(join(dirname, '*.*')))
         )
@@ -75,7 +76,7 @@ def get_sdist_config():
         author='Jonathan Hartley',
         author_email='tartley@tartley.com',
         keywords='console blessings ansi terminal animation',
-        entry_points = {
+        entry_points={
             'console_scripts': ['{0}={0}.__main__:main'.format(NAME)],
             'gui_scripts': [],
         },
@@ -95,7 +96,7 @@ def get_sdist_config():
         #},
         #data_files=[
             # ('install-dir', ['files-relative-to-setup.py']),
-        #], 
+        #],
         # see classifiers:
         # http://pypi.python.org/pypi?:action=list_classifiers
         classifiers=[
