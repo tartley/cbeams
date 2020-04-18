@@ -71,6 +71,7 @@ def get_sdist_config():
         version=get_version(),
         description=description,
         long_description=long_description,
+        long_description_content_type="text/markdown",
         url='http://pypi.python.org/pypi/%s/' % (NAME,),
         author='Jonathan Hartley',
         author_email='tartley@tartley.com',

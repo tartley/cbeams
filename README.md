@@ -1,57 +1,45 @@
-cbeams
-======
+# cbeams
 
 A command-line program which draws pretty animated colored circles in the
 terminal.
 
-    *I've seen things you people wouldn't believe. Attack ships on fire off the
-    shoulder of Orion. I watched c-beams glitter in the dark, near the
-    Tannhäuser Gate. All those moments will be lost, in time, like tears in
-    rain. Time to die.*
+> *I've seen things you people wouldn't believe. Attack ships on fire off the
+> shoulder of Orion. I watched c-beams glitter in the dark, near the
+> Tannhäuser Gate. All those moments will be lost, in time, like tears in
+> rain. Time to die.*
 
-.. image:: screenshots/cbeams.png
-    :target: https://asciinema.org/a/141032
+[![click to see animation](screenshots/cbeams.png)](https://asciinema.org/a/141032)
 
 Click the screenshot for an asciicast showing it in motion (Thanks asciinema!)
-It looks even better running in a large terminal locally. You should download
-and run it!
+It looks even better running in a large terminal locally, where the animation
+is smoother. You should download and run it!
 
-Downloading as a binary executable
-----------------------------------
+    $ pip install --user cbeams
+    $ cbeams
 
-A Linux binary executable can be downloaded from:
+# Downloading as a binary executable
+
+Older releases contained a Linux binary executable, downloaded from:
 
     https://github.com/tartley/cbeams/releases
 
-You don't need any version of Python installed, just download, open a terminal,
-tar -xzf the release, and run the script 'cbeams'.
+But I'm not building those any more. Get it of PyPI using pip as above.
 
-Downloading as source
----------------------
+# Downloading as source
 
-Dependencies
-............
+## Dependencies
 
 Developed on on Ubuntu 14.04, likely works on other Linux.
 Does work on OSX.
 Does not work on Windows.
 
-Tested on Python 3.4 & 3.5. Probably also runs on other 3.x.
+Tested on Python 3.4 & 3.5. Recent releases on 3.8.
+Probably also runs on other 3.x.
 Does not run on 2.x.
 
 Python dependencies are specified in setup.py.
 
-Installing
-..........
-
-::
-
-    pip install cbeams
-
-Usage
------
-
-::
+# Usage
 
     cbeams [-o]
     cbeams [-h]
@@ -67,8 +55,7 @@ flipping buffers. So you can see the expanding circles slowly eat away at your
 existing terminal text, but then when you ctrl-c, it's not possible to restore
 the terminal. So one screenful of your terminal text is overwritten and lost.
 
-Why did I develop this?
------------------------
+# Why did I develop this?
 
 The traditional way to do colors or animation in a terminal is to use the
 venerable UNIX library 'curses', or its open source clone 'ncurses'. There are
@@ -88,8 +75,7 @@ I wanted an excuse to learn how blessings works, and cbeams is the result.
 I tag it onto the end of long-running commands to use as a visual notification
 that the command has finished.
 
-How it works
-------------
+# How it works
 
 Aside from the use of Blessings, the other fun part of this project was in
 representing the circles.
@@ -171,8 +157,7 @@ our rings are the same colors, sometimes two colors, and sometimes many colors.
 This helps to keep the animation evolving over time, instead of looking too
 'samey' all the time. 
 
-Hacking
--------
+# Hacking
 
 To populate a virtualenv, run tests, etc, see the commands in the Makefile.
 These can often work in Windows too, under Bash shells like Cygwin, Msys.
@@ -183,21 +168,16 @@ meaning both that source edits are immediately visible within the virtualenv,
 and that the application entry points listed in setup.py are converted into
 executable scripts on the PATH.
 
-Thanks
-------
+# Thanks
 
 To Erik Rose, for the fabulous Blessings package.
 https://pypi.python.org/pypi/blessings
 
-Links & Contact
----------------
+# Links & Contact
 
-:Python package:
-    http://pypi.python.org/pypi/cbeams/
+Python package: http://pypi.python.org/pypi/cbeams/
 
-:Binaries, source, issues:
-    https://github.com/tartley/cbeams/
+Binaries, source, issues: https://github.com/tartley/cbeams/
 
-:Author:
-    Jonathan Hartley, email: tartley at domain tartley.com, Twitter: @tartley.
+Author: Jonathan Hartley, email: tartley at domain tartley.com, Twitter: @tartley.
 

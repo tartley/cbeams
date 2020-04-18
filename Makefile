@@ -45,17 +45,17 @@ develop: ## Install this package in develop mode, so we can edit it
 
 dist: ## Create an sdist and a wheel
 	python setup.py sdist --formats=gztar bdist_wheel
-.PHONY: sdist
+.PHONY: dist
 
-register: ## Update package metadata & docs on PyPI
+register: ## Create the package on PyPI, with docs.
 	python setup.py register
 .PHONY: register
 
-upload: clean sdist wheel ## Not sure what this does, TBH
+upload: clean dist ## Upload sdist and wheel to PyPI
 	twine upload dist/*
 .PHONY: upload
 
-# Hence normal releases will go: make dist upload
+# Hence normal releases will just be: make upload
 
 
 # build a redistributable binary
