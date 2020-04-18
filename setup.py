@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 import codecs
-import collections
 from glob import glob
 import os
 from os.path import join
@@ -48,7 +47,7 @@ def find_value(source, identifier):
 def get_version():
     return find_value(read_file(join(NAME, '__init__.py')), '__version__')
 
-def get_package_data(topdir, excluded=collections.frozenset()):
+def get_package_data(topdir, excluded=frozenset()):
     retval = []
     for dirname, subdirs, _ in os.walk(join(NAME, topdir)):
         for subdir in excluded:
