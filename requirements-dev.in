@@ -2,7 +2,8 @@
 -r requirements.txt
 
 # Development tools:
-PyInstaller==3.1
-pytest==2.8.1
-twine==1.6.5
+PyInstaller
+pylint
+pytest
+twine
 
