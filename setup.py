@@ -70,6 +70,7 @@ def get_sdist_config():
         name=NAME,
         version=get_version(),
         description=description,
+        #description_content_type="text/markdown",
         long_description=long_description,
         long_description_content_type="text/markdown",
         url='http://pypi.python.org/pypi/%s/' % (NAME,),

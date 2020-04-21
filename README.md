@@ -1,7 +1,6 @@
 # cbeams
 
-A command-line program which draws pretty animated colored circles in the
-terminal.
+A command-line program which draws pretty animated colored circles in the terminal.
 
 > *I've seen things you people wouldn't believe. Attack ships on fire off the
 > shoulder of Orion. I watched c-beams glitter in the dark, near the

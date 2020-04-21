@@ -1,9 +1,10 @@
-# App dependencies:
--r requirements.txt
+# Use the 'install_requires' setting from setup.py:
+-e .
 
 # Development tools:
 PyInstaller
 pylint
 pytest
 twine
+wheel
 

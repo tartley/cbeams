@@ -51,8 +51,13 @@ register: ## Create the package on PyPI, with docs.
 	python setup.py register
 .PHONY: register
 
+upload-test: clean dist ## Upload sdist and wheel to TEST PyPI
+	twine upload -r testpypi dist/*.whl dist/*.gz
+.PHONY: upload
+
 upload: clean dist ## Upload sdist and wheel to PyPI
-	twine upload dist/*
+	twine upload dist/*whl dist/*gz
+
 .PHONY: upload
 
 # Hence normal releases will just be: make upload
