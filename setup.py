@@ -26,7 +26,9 @@ def read_description(filename):
     '''
     text = read_file(filename)
     paras = text.split('\n\n')
-    return paras[1], '\n\n'.join(paras[2:])
+    description = paras[1].replace('\n', ' ')
+    long_description = '\n\n'.join(paras[2:])
+    return description, long_description
 
 def find_value(source, identifier):
     '''
