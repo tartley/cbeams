@@ -8,7 +8,7 @@ def call_process(command, expected_out=(), expected_err=()):
     out, err = process.communicate()
     out = out.decode('unicode_escape')
     err = err.decode('unicode_escape')
-    assert process.returncode == 0, '\n%s\n%s' % (err, out)
+    assert process.returncode == 0, '\nERR:%s\nOUT:%s' % (err, out)
     return out, err
 
 

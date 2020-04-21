@@ -2,7 +2,6 @@
 -e .
 
 # Development tools:
-PyInstaller
 pylint
 pytest
 twine

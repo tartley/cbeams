@@ -133,9 +133,7 @@ def get_sdist_config():
 
 
 def main():
-    config = {}
-    config.update(get_sdist_config())
-    setup(**config)
+    setup(**get_sdist_config())
 
 
 if __name__ == '__main__':

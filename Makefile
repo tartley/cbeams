@@ -3,36 +3,32 @@
 # used them on OSX with up-to-date gnu binaries, or WindowsXP/7 with Cygwin
 # binaries foremost on the PATH.
 
+PROJ=cbeams
+PYVERSION=python3.8
+VENV=$(HOME)/.virtualenvs/$(PROJ)
+BIN=$(VENV)/bin
+
+# help
+
+help: ## Show this help.
+	@# Optionally add 'sort' before 'awk'
+	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-10s\033[0m %s\n", $$1, $$2}'
+.PHONY: help
+
+
 # virtualenv
 
-ve: ## Echo a command which can be used to create and populate a virtualenv
-	@# Make can't execute this 'cos the shell it executes commands in
-	@# isn't interactive, so doesn't have 'mkvirtualenv' available.
-	@echo "You should execute this:"
-	@echo 'mkvirtualenv -p $$(which python3.5) -a . -r requirements-dev.txt cbeams'
+venv: ## Create the virtualenv, or clear installed packages from it.
+	# Use system python for this. Other steps will use venv's symlink to it.
+	$(PYVERSION) -m venv $(VENV) --clear
+.PHONY: venv
 
-popve: ## Populate the active virtualenv
-	pip install -r requirements-dev.txt
+popve: ## Populate the virtualenv.
+	$(BIN)/pip install -U -r requirements-dev.txt
+.PHONY: popve
 
-
-# development
-
-test: ## Run tests
-	py.test -q
-.PHONY: test
-
-lint: ## Run lint tools
-	pylint *.py
-.PHONY: lint
-
-tags: ## Create tags
-	ctags -R --languages=python .
-.PHONY: tags
-
-clean: ## Delete all temporary files, like *.pyc or __pycache__
-	rm -rf build dist MANIFEST tags *.egg-info *.spec
-	find . -name __pycache__ -type d | xargs rm -rf
-.PHONY: clean
+bootstrap: venv popve ## Set up a development environment.
+.PHONY: bootstrap
 
 develop: ## Install this package in develop mode, so we can edit it
 	@# i.e creates executable entry points in our python or virtualenv's bin dir
@@ -41,7 +37,29 @@ develop: ## Install this package in develop mode, so we can edit it
 .PHONY: develop
 
 
+# development
+
+test: ## Run tests
+	$(BIN)/pytest -q
+.PHONY: test
+
+lint: ## Run lint tools
+	$(BIN)/pylint *.py
+.PHONY: lint
+
+tags: ## Create tags
+	ctags -R --languages=python .
+.PHONY: tags
+
+clean: ## Delete all temporary files
+	rm -rf build dist MANIFEST tags *.egg-info *.spec
+	find . -name __pycache__ -type d | xargs rm -rf
+.PHONY: clean
+
+
 # push to PyPI
+
+# Hence normal releases will just be: make upload
 
 dist: ## Create an sdist and a wheel
 	python setup.py sdist --formats=gztar bdist_wheel
@@ -57,38 +75,5 @@ upload-test: clean dist ## Upload sdist and wheel to TEST PyPI
 
 upload: clean dist ## Upload sdist and wheel to PyPI
 	twine upload dist/*whl dist/*gz
-
 .PHONY: upload
-
-# Hence normal releases will just be: make upload
-
-
-# build a redistributable binary
-# TODO: Put this in a script.
-# TODO: Hardcoded program version
-
-exe: clean ## Build a redistributable binary for the current platform
-	bin/make-exe
-
-# Don't work
-
-# profile:
-#   # runsnake is a GUI visualiser for the output of cProfile
-#   # http://www.vrplumber.com/programming/runsnakerun/
-# 	python -O -m cProfile -o profile.out cbeams
-# 	runsnake profile.out
-# .PHONY: profile
-
-# py2exe:
-# 	rm -rf dist/cbeams-${RELEASE}.* build
-# 	python setup.py --quiet py2exe
-# .PHONY: py2exe
-
-
-help:
-	@# Optionally add 'sort' before 'awk'
-	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-10s\033[0m %s\n", $$1, $$2}'
-.PHONY: help
-
-.DEFAULT_GOAL := help
 

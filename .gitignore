@@ -1,7 +1,6 @@
 __pycache__/
 /*.egg-info/
 /.cache/
-/pyinstaller.out
 /build/
 /dist/
 /main.spec
