@@ -1,0 +1,30 @@
+name: cbeams
+base: core20
+adopt-info: cbeams
+summary: A CLI program which draws pretty animated colored circles in the terminal.
+
+description: |
+  A command-line program which draws pretty animated colored circles in the terminal.
+  > I've seen things you people wouldn't believe. Attack ships on fire off the shoulder of Orion. I watched c-beams glitter in the dark, near the Tannhäuser Gate. All those moments will be lost, in time, like tears in rain. Time to die.
+
+grade: stable
+confinement: strict
+
+apps:
+  cbeams:
+    command: bin/cbeams
+
+parts:
+  cbeams:
+    plugin: python
+    source: .
+    requirements:
+      - requirements.txt
+    build-packages:
+      # for setting the version of the snap
+      - git
+    override-pull: |
+      snapcraftctl pull
+      snapcraftctl set-version $(git describe --always --tags --dirty)
+    python-packages:
+      - wheel
