@@ -17,6 +17,12 @@ is smoother. You should download and run it!
     $ pip install --user cbeams
     $ cbeams
 
+# Downloading as a snap
+
+    snap install cbeams
+
+And you're done. Many thanks to github user @anonymouse64 for contributing this!
+
 # Downloading as a binary executable
 
 Older releases contained a Linux binary executable, downloaded from:
