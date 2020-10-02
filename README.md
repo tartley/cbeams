@@ -11,9 +11,9 @@ terminal.
 [![click to see animation](screenshots/cbeams.png)](https://asciinema.org/a/141032)
 
 Click the screenshot for an asciicast showing it in motion (Thanks asciinema!)
-It looks much better running in a terminal locally, where the animation
-is smoother. You should download and run it!
 
+It genuinely does look much better running in a terminal locally, where the animation
+is smoother. You should download and run it!
 
 # Installing for Python people
 
@@ -28,11 +28,9 @@ is smoother. You should download and run it!
 
     snap install cbeams
 
-# Downloading as source
+# Hacking on the source
 
-♥ you folks the most!
-
-## Dependencies
+♥ you folks the most! Be aware:
 
 Developed on on Ubuntu 14.04 - 20.04, likely works on other Linux.
 Does work on OSX.
@@ -62,6 +60,13 @@ flipping buffers. So you can see the expanding circles slowly eat away at your
 existing terminal text, but then when you ctrl-c, it's not possible to restore
 the terminal. So one screenful of your terminal text is overwritten and lost.
 
+# Thanks
+
+To Erik Rose, for the fabulous Blessings package.
+https://pypi.python.org/pypi/blessings
+
+To GitHub user @anonymouse64, for contributing packaging as a Snap, out of the goodness of his heart!
+
 # Why did I develop this?
 
 The traditional way to do colors or animation in a terminal is to use the
@@ -81,13 +86,6 @@ I wanted an excuse to learn how blessings works, and cbeams is the result.
 
 I tag it onto the end of long-running commands to use as a visual notification
 that the command has finished.
-
-# Thanks
-
-To Erik Rose, for the fabulous Blessings package.
-https://pypi.python.org/pypi/blessings
-
-To GitHub user @anonymouse64, for contributing packaging as a Snap, out of the goodness of his heart!
 
 # How it works
 
