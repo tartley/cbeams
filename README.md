@@ -24,17 +24,13 @@ is smoother. You should download and run it!
 
 # Installing as a snap, for Linux users
 
+♥ you folks, too.
+
     snap install cbeams
 
-# Downloading as a binary executable
-
-Older GitHub releases contained a Linux binary executable, downloaded from:
-
-    https://github.com/tartley/cbeams/releases
-
-But I'm not building those any more, so they may be old.
-
 # Downloading as source
+
+♥ you folks the most!
 
 ## Dependencies
 
