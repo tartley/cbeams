@@ -11,35 +11,40 @@ terminal.
 [![click to see animation](screenshots/cbeams.png)](https://asciinema.org/a/141032)
 
 Click the screenshot for an asciicast showing it in motion (Thanks asciinema!)
-It looks even better running in a large terminal locally, where the animation
+It looks much better running in a terminal locally, where the animation
 is smoother. You should download and run it!
+
+
+# Installing for Python people
+
+♥ you folks.
 
     $ pip install --user cbeams
     $ cbeams
 
-# Downloading as a snap
+# Installing as a snap, for Linux users
 
     snap install cbeams
 
-And you're done. Many thanks to github user @anonymouse64 for contributing this!
+Many thanks to github user @anonymouse64 for contributing this!
 
 # Downloading as a binary executable
 
-Older releases contained a Linux binary executable, downloaded from:
+Older GitHub releases contained a Linux binary executable, downloaded from:
 
     https://github.com/tartley/cbeams/releases
 
-But I'm not building those any more. Get it of PyPI using pip as above.
+But I'm not building those any more, so they may be old.
 
 # Downloading as source
 
 ## Dependencies
 
-Developed on on Ubuntu 14.04, likely works on other Linux.
+Developed on on Ubuntu 14.04 - 20.04, likely works on other Linux.
 Does work on OSX.
-Does not work on Windows.
+Does not work on Windows. Might on WSL though.
 
-Tested on Python 3.4 & 3.5. Recent releases on 3.8.
+Runs on Python 3.4 to 3.8.
 Probably also runs on other 3.x.
 Does not run on 2.x.
 
@@ -47,11 +52,13 @@ Python dependencies are specified in setup.py.
 
 # Usage
 
-    cbeams [-o]
-    cbeams [-h]
+    Usage:
+        cbeams [ --help | --version | --overwrite ]
 
-    -o  Overwrites one screenful of the existing terminal contents
-    -h  Displays help.
+    Options:
+        -h --help       Show this text.
+        -v --version    Print version number and exit.
+        -o --overwrite  Overwrite terminal's visible screenful of content.
 
 Pressing ctrl-C exits cbeams, flipping back to the regular terminal buffer, so
 the animation doesn't overwrite any of your previous terminal contents.
