@@ -26,8 +26,6 @@ is smoother. You should download and run it!
 
     snap install cbeams
 
-Many thanks to github user @anonymouse64 for contributing this!
-
 # Downloading as a binary executable
 
 Older GitHub releases contained a Linux binary executable, downloaded from:
@@ -87,6 +85,13 @@ I wanted an excuse to learn how blessings works, and cbeams is the result.
 
 I tag it onto the end of long-running commands to use as a visual notification
 that the command has finished.
+
+# Thanks
+
+To Erik Rose, for the fabulous Blessings package.
+https://pypi.python.org/pypi/blessings
+
+To GitHub user @anonymouse64, for contributing packaging as a Snap, out of the goodness of his heart!
 
 # How it works
 
@@ -180,11 +185,6 @@ add "-e ." to the virtualenv, which adds this project in 'develop mode',
 meaning both that source edits are immediately visible within the virtualenv,
 and that the application entry points listed in setup.py are converted into
 executable scripts on the PATH.
-
-# Thanks
-
-To Erik Rose, for the fabulous Blessings package.
-https://pypi.python.org/pypi/blessings
 
 # Links & Contact
 
