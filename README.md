@@ -24,7 +24,7 @@ is smoother. You should download and run it!
 
 # Installing as a snap, for Linux users
 
-♥ you folks, too.
+♥ you folks, too. Here it is [on the SnapStore](https://snapcraft.io/cbeams).
 
     snap install cbeams
 
