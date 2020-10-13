@@ -26,20 +26,6 @@ For Python people (Does work on Linux/OSX, not on Windows. Might from WSL?)
     $ pip install --user cbeams
     $ cbeams
 
-## Hacking on the source
-
-Be aware:
-
-Developed on on Ubuntu 14.04 - 20.04, likely works on other Linux.
-Does work on OSX.
-Does not work on Windows. Might on WSL though.
-
-Runs on Python 3.4 to 3.8.
-Probably also runs on other 3.x.
-Does not run on 2.x.
-
-Python dependencies are specified in setup.py.
-
 ## Usage
 
     Usage:
@@ -57,6 +43,20 @@ For fun, there's also a '-o' arg, which overwrites the terminal text without
 flipping buffers. So you can see the expanding circles slowly eat away at your
 existing terminal text, but then when you ctrl-c, it's not possible to restore
 the terminal. So one screenful of your terminal text is overwritten and lost.
+
+## Hacking on the source
+
+Be aware:
+
+Developed on on Ubuntu 14.04 - 20.04, likely works on other Linux.
+Does work on OSX.
+Does not work on Windows. Might on WSL though.
+
+Runs on Python 3.4 to 3.8.
+Probably also runs on other 3.x.
+Does not run on 2.x.
+
+Python dependencies are specified in setup.py.
 
 ## Thanks
 
