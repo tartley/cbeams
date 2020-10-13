@@ -15,6 +15,10 @@ Click the screenshot for an asciicast showing it in motion (Thanks asciinema!)
 It genuinely does look much better running in a terminal locally, where the animation
 is smoother. You should download and run it!
 
+[PyPI](http://pypi.python.org/pypi/cbeams/) | [Github](https://github.com/tartley/cbeams/)
+
+Author: Jonathan Hartley, email: tartley at domain tartley.com, Twitter: @tartley.
+
 ## Installing
 
 [As a snap](https://snapcraft.io/cbeams), for Linux users:
@@ -58,12 +62,23 @@ Does not run on 2.x.
 
 Python dependencies are specified in setup.py.
 
+To populate a virtualenv, run tests, etc, see the commands in the Makefile.
+These can often work in Windows too, under Bash shells like Cygwin, Msys,
+(and presumably WSL too, although that didn't exist when  I wrote this.)
+
+Populating the virtualenv in the manner shown in the Makefile adds "-e ."
+to the virtualenv, which adds this project in 'develop mode', meaning both
+that source edits are immediately visible within the virtualenv, and that
+the application entry points listed in setup.py are converted into
+executable scripts on the PATH.
+
 ## Thanks
 
 To Erik Rose, for the fabulous Blessings package.
 https://pypi.python.org/pypi/blessings
 
-To GitHub user @anonymouse64, for contributing packaging as a Snap, out of the goodness of his heart!
+To GitHub user @anonymouse64, for contributing packaging as a Snap, out of
+the goodness of his heart!
 
 ## Why did I develop this?
 
@@ -166,23 +181,3 @@ colors. We add and remove colors from that set over time, so that sometimes all
 our rings are the same colors, sometimes two colors, and sometimes many colors.
 This helps to keep the animation evolving over time, instead of looking too
 'samey' all the time. 
-
-## Hacking
-
-To populate a virtualenv, run tests, etc, see the commands in the Makefile.
-These can often work in Windows too, under Bash shells like Cygwin, Msys.
-
-Populating the virtualenv in the manner shown in the Makefile will also
-add "-e ." to the virtualenv, which adds this project in 'develop mode',
-meaning both that source edits are immediately visible within the virtualenv,
-and that the application entry points listed in setup.py are converted into
-executable scripts on the PATH.
-
-## Links & Contact
-
-Python package: http://pypi.python.org/pypi/cbeams/
-
-Binaries, source, issues: https://github.com/tartley/cbeams/
-
-Author: Jonathan Hartley, email: tartley at domain tartley.com, Twitter: @tartley.
-
