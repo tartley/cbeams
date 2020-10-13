@@ -15,22 +15,20 @@ Click the screenshot for an asciicast showing it in motion (Thanks asciinema!)
 It genuinely does look much better running in a terminal locally, where the animation
 is smoother. You should download and run it!
 
-# Installing for Python people
+## Installing
 
-♥ you folks.
+[As a snap](https://snapcraft.io/cbeams), for Linux users:
+
+    snap install cbeams
+
+For Python people (Does work on Linux/OSX, not on Windows. Might from WSL?)
 
     $ pip install --user cbeams
     $ cbeams
 
-# Installing as a snap, for Linux users
+## Hacking on the source
 
-♥ you folks, too. Here it is [on the SnapStore](https://snapcraft.io/cbeams).
-
-    snap install cbeams
-
-# Hacking on the source
-
-♥ you folks the most! Be aware:
+Be aware:
 
 Developed on on Ubuntu 14.04 - 20.04, likely works on other Linux.
 Does work on OSX.
@@ -42,7 +40,7 @@ Does not run on 2.x.
 
 Python dependencies are specified in setup.py.
 
-# Usage
+## Usage
 
     Usage:
         cbeams [ --help | --version | --overwrite ]
@@ -60,14 +58,14 @@ flipping buffers. So you can see the expanding circles slowly eat away at your
 existing terminal text, but then when you ctrl-c, it's not possible to restore
 the terminal. So one screenful of your terminal text is overwritten and lost.
 
-# Thanks
+## Thanks
 
 To Erik Rose, for the fabulous Blessings package.
 https://pypi.python.org/pypi/blessings
 
 To GitHub user @anonymouse64, for contributing packaging as a Snap, out of the goodness of his heart!
 
-# Why did I develop this?
+## Why did I develop this?
 
 The traditional way to do colors or animation in a terminal is to use the
 venerable UNIX library 'curses', or its open source clone 'ncurses'. There are
@@ -87,7 +85,7 @@ I wanted an excuse to learn how blessings works, and cbeams is the result.
 I tag it onto the end of long-running commands to use as a visual notification
 that the command has finished.
 
-# How it works
+## How it works
 
 Aside from the use of Blessings, the other fun part of this project was in
 representing the circles.
@@ -169,7 +167,7 @@ our rings are the same colors, sometimes two colors, and sometimes many colors.
 This helps to keep the animation evolving over time, instead of looking too
 'samey' all the time. 
 
-# Hacking
+## Hacking
 
 To populate a virtualenv, run tests, etc, see the commands in the Makefile.
 These can often work in Windows too, under Bash shells like Cygwin, Msys.
@@ -180,7 +178,7 @@ meaning both that source edits are immediately visible within the virtualenv,
 and that the application entry points listed in setup.py are converted into
 executable scripts on the PATH.
 
-# Links & Contact
+## Links & Contact
 
 Python package: http://pypi.python.org/pypi/cbeams/
 
