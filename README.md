@@ -29,6 +29,10 @@ For Python people (Does work on Linux/OSX, not on Windows. Might from WSL?)
 
     $ pip install --user cbeams
     $ cbeams
+    
+FreeBSD users can also install cbeams via pkg:
+
+    # pkg install -x 'py3.*-cbeams'
 
 ## Usage
 
