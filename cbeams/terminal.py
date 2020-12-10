@@ -2,8 +2,10 @@ import contextlib
 import sys
 import random
 
-from blessings import Terminal
+from colorama import init
+init()
 
+from blessings import Terminal
 terminal = Terminal()
 
 @contextlib.contextmanager
